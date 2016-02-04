@@ -1,0 +1,2 @@
+To convert global soil carbon at top 1m (NCSCDV22) from original tif file to 0.5x0.5 netcdf file:
+read-NCSCDV22.pro --> convert-NCSCDV22.ncl --> write-NCSCDV22.ncl

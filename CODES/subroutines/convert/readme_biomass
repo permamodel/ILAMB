@@ -1,0 +1,8 @@
+To convert US Forest Biomass from original tif file to 0.5x0.5 netcdf file:
+read-US.Forest.pro --> convert-US.Forest.ncl --> write-US.Forest.ncl
+
+To convert NBCD2000 from original tif file to 0.5x0.5 netcdf file:
+read-NBCD2000.pro --> convert-NBCD2000.ncl --> write-NBCD2000.ncl
+
+To convert Global Tropical Forest Biomass from original tif file to 0.5x0.5 netcdf file:
+read-GlobalCarbon.pro --> convert-GlobalCarbon.ncl --> write-GlobalCarbon.ncl

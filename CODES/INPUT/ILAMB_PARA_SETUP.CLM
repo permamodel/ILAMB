@@ -1,0 +1,102 @@
+1. List Model names and # of ensembles here
+Model Name      |Select Model|Ensemble|  Experiment  |
+MeanModel       |      0     |    0   |  historical  |
+CLM40cn         |      1     |    1   |  historical  |
+CLM45bgc_CRUNCEP|      1     |    1   |  historical  |
+CLM45bgc_GSWP3  |      1     |    1   |  historical  |
+
+2. List Variables and  Diagnostic packages (KeyWords) here
+          |  Benchmark  |  Period | Regional Analysis |   Global Patterns  |             Scoring Metrics                    |
+Variables |    Sources  |Start-End| Multi |   Single  |AnnualMean|Bias|RMSE|GlobalBias|RMSE|Phase|Taylor|Interannual|OverAll|
+tas       |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+albedo    |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+biomass   |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 0  |    1     | 0  |  0  |   1  |    0      |   1   |
+burntArea |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+et        |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+gpp       |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+lai       |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+le        |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+nbp       |     All     |1850-2010|       |   Global  |     1    | 1  | 1  |    1     | 1  |  0  |   0  |    1      |   1   |
+nee       |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+pr        |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+reco      |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+rsds      |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+rsus      |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+rsns      |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+rlds      |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+rlus      |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+rlns      |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+rns       |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+sh        |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+soilc     |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 0  |    1     | 0  |  0  |   1  |    0      |   1   |
+twsa      |     All     |1850-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+
+3. List pair of Variables for their relationship
+Variables |    Source   |albedo|biomass|burntArea|co2|et|gpp|le|nee|pr|reco|rlds|rlns|rlus|rns|rsds|rsns|rsus|sh|soilc|soilm|sst|tas|twsa|twsa_per|
+albedo    |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+biomass   |Global.Carbon|   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+burntArea |    GFED3    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 4|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 4 |  0 |    0   |
+co2       |   NOAA.GMD  |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+et        |    GLEAM    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 4|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 4 |  0 |    0   |
+gpp       | Fluxnet-MTE |   0  |   0   |    0    | 0 | 4| 0 | 0| 0 | 4|  0 |  0 |  0 |  0 | 0 |  4 |  4 |  0 | 0|  0  |  0  | 0 | 4 |  0 |    0   |
+lai       |    MODIS    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 4|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+le        |             |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+nee       |             |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+pr        |    GPCP2    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+reco      |             |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+rlds      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+rlns      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+rlus      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+rns       |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+rsds      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+rsns      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+rsus      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+sh        |             |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+soilc     |     HWSD    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+soilm     |     ECV     |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+sst       |  NOAA.IO2   |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+tas       |     CRU     |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+twsa      |    GRACE    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+twsa_per  |    GRACE    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   |
+
+4. List Variables for detail Check 
+Variables |   Sources |  Region |
+gpp       |   FLUXNET |  Global |
+le        |   FLUXNET |  Global |
+nee       |   FLUXNET |  Global |
+reco      |   FLUXNET |  Global |
+rns       |   FLUXNET |  Global |
+rsds      |   FLUXNET |  Global |
+rns       | WRMC.BSRN |  Global |
+rsds      | WRMC.BSRN |  Global |
+rsus      | WRMC.BSRN |  Global |
+rsns      | WRMC.BSRN |  Global |
+rlds      | WRMC.BSRN |  Global |
+rlus      | WRMC.BSRN |  Global |
+rlns      | WRMC.BSRN |  Global |
+pr        |   FLUXNET |  Global |
+sh        |   FLUXNET |  Global |
+tas       |   FLUXNET |  Global |
+
+Notes: This table (above) contains all input parameters for your choose to run ILAMB diagnostic package. 
+       The numbers shown above are default to run the package. Based on your purpose, please change
+       the numbere as you want. There are 3 parts that you need to note.
+
+       Part 1: List Model names and # of ensembles
+       You may choose any model or add new model here. There are 2 items that you can change.
+          cmipID: which model you want to include in your diagnostics, 1: include this model, 0: exclude; 
+           runID: how many of ensembles you want to use, if you want to include all enembles, please enter 0 
+                  or a number larger its availibity. 
+
+       Part 2: List Variables and Diagnostic packages (KeyWords)
+       You may choose any variable or diagnostics (Keywords) or add new variables here. 1: include, 0: not include.
+
+       Part 3: List pair of Variables for their relationship
+       You may choose any two variables for their relations. The meanings of numbers are explained below:
+       0: not include; 1-3: correlation; 4: linear function of one variable (x: column) to another (y: row);
+       5: linear prediction of one variable (y: row) with another (x: column); and more .......
+
+       Part 4: List Variables to check whole time series at each point or region)
+       If the Source is site data, you should set "Region" as "Global" to show time series at all sites.
+       If the Source is grid data, you should set "Region" here or define it in $ILAMB_ROOT/CODES/INPUT/retrieve_biome_region.ncl
+

@@ -1,0 +1,2 @@
+To convert AVHRR leaf area index from original tif file to 0.5x0.5 netcdf file:
+read-avhrr.m --> convert-lai-avhrr.ncl

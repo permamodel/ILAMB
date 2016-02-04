@@ -1,0 +1,4 @@
+The pre-configuration for ILAMB diagnostics (INPUT/ILAMB_PARA_SETUP) is to run 2 test models (MPI-ESM-LR and NorESM1-ME) only. 
+If you want to run CLM or more CMIP5 simulations, please copy INPUT/ILAMB_PARA_SETUP.CLM or INPUT/ILAMB_PARA_SETUP.CMIP5 to 
+INPUT/ILAMB_PARA_SETUP, and make appropriate modifications as you need. If you want to run CLM version diagnostics, you also need
+to modifiy the run script ILAMB_Main.csh, go to this file and change the environmetal variable MODELTYPE to CLM.

@@ -1,0 +1,63 @@
+                                                                                                                                              GlobalBias    RMSE      Phase        Taylor   Interannual
+                                                                                                      Certainty            Scale      Overall    (Global   (RMSE  (Seasonal      (Spatial  (Interannual
+Variable Short Name (Long Name)            Source Short Name (Long Name [Reference])                         of  Appropriateness   Constraint       Bias              Cycle  Distribution   Variability
+                                                                                                           Data     and Coverage  and Process     Score)  Score)     Score)        Score)        Score)
+biomass (Aboveground Live Biomass),        US.FOREST (Contiguous US + Alaska [Blackard el al. 2008]),         4,               2,           5,      Yes,     No,        No,          Yes,           No     
+Biomass (Aboveground Live Biomass),        NBCD2000 (Contiguous US [Kellndorfer et al. 2000]),                4,               2,           5,      Yes,     No,        No,          Yes,           No
+Biomass (Aboveground Live Biomass),        GLOBAL.CARBON (Pan Tropical Forest [Saatchi et al. 2011]),         4,               4,           5,      Yes,     No,        No,          Yes,           No 
+Biomass (Aboveground Live Biomass),        GEOCARBON (Global Forest Biomass [Avitabile et al. 2015]),         4,               5,           5,      Yes,     No,        No,          Yes,           No 
+burntArea (Burned Area),                   GFED3 (GFED3 [Giglio et al. 2010]),                                4,               5,           4,      Yes,    Yes,       Yes,          Yes,          Yes
+co2 (Carbon Dioxide),                      NOAA.GMD (Annual Cycle at NOAA GMD [Dlugokencky et al. 2013]),     5,               4,           5,       No,    Yes,       Yes,           No,           No 
+co2 (Carbon Dioxide),                      MAUNA.LOA (Annual Mean at Mauna Loa [Keeling et al. 2005]),        5,               4,           5,      Yes,     NO,        NO,           No,          Yes	
+gpp (Gross Primary Production),            FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     3,               3,           5,      Yes,    Yes,       Yes,          Yes,          Yes
+gpp (Gross Primary Production),            FLUXNET-MTE (Fluxnet-Global MTE [Jung et al. 2009]),               3,               5,           5,      Yes,    Yes,       Yes,          Yes,           No 
+lai (Leaf Area Index),                     AVHRR (AVHRR BU [Myneni et al. 1997]),                             3,               5,           3,      Yes,    Yes,       Yes,          Yes,          Yes
+lai (Leaf Area Index),                     MODIS (MODIS [De Kauwe et al. 2011]),                              3,               5,           3,      Yes,    Yes,       Yes,          Yes,           No
+nbp (Global Net Ecosystem Carbon Balance), GCP (GCP [Le Quere et al. 2012]),                                  4,               5,           5,      Yes,    Yes,       Yes,           No,          Yes
+nbp (Global Net Ecosystem Carbon Balance), HOFFMAN (Khatiwala/Hoffman [Hoffman et al. 2013]),                 4,               5,           5,      Yes,    Yes,       Yes,           No,          Yes
+nee (Net Ecosystem Exchange),              FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     3,               3,           5,      Yes,    Yes,       Yes,          Yes,          Yes
+nee (Net Ecosystem Exchange),              GBAF (Global Bio-Atmosphere Flux [Jung et al. 2009]),              2,               2,           5,       NO,    Yes,       Yes,          Yes,           No 
+reco (Ecosystem Respiration),              FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     2,               3,           4,      Yes,    Yes,       Yes,          Yes,          Yes
+reco (Ecosystem Respiration),              GBAF (Global Bio-Atmosphere Flux [Jung et al. 2009]),              2,               2,           4,       NO,    Yes,       Yes,          Yes,           No 
+soilc (Soil Carbon),                       HWSD (HWSD [Todd-Brown et al. 2013]),                              3,               5,           5,      Yes,     No,        No,          Yes,           No 
+soilc (Soil Carbon),                       NCSCDV22 (NCSCD v2.2 [Hugelius et al. 2013]),                      3,               4,           5,      Yes,     No,        No,          Yes,           No
+le (Latent Heat),                          FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     3,               1,           5,      Yes,    Yes,       Yes,          Yes,          Yes
+le (Latent Heat),                          FLUXNET-MTE (Fluxnet-Global MTE [Jung et al. 2010]),               3,               3,           5,      Yes,    Yes,       Yes,          Yes,           No
+et (Evapotranspiration),                   MODIS (MODIS/MOD16A2 [Mu et al. 2011]),                            3,               5,           5,      Yes,    Yes,       Yes,          Yes,          Yes
+et (Evapotranspiration),                   GLEAM (GLEAM [Miralles et al. 2011]),                              3,               5,           5,      Yes,    Yes,       Yes,          Yes,          Yes
+runoff (runoff),                           GRDC (GRDC [Fekete et al. 2002]),                                  3,               5,           5,      Yes,    Yes,       Yes,          Yes,           No 
+twsa (Terrestrial Water Storage Anomaly),  GRACE (GRACE Tellus [Landerer et al. 2012]),                       5,               5,           5,      Yes,    Yes,       Yes,          Yes,          Yes
+albedo (Albedo),                           MODIS (MODIS/MCD43C3 [Schaaf et al. 2011]),                        4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+albedo (Albedo),                           CERES (CERES [Kato et al. 2013]),                                  4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+albedo (Albedo),                           GEWEX.SRB (GEWEX-SRB [Stackhouse et al. 2011]),                    4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+sh (Sensible Heat),                        FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     3,               3,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+sh (Sensible Heat),                        GBAF (Global Bio-Atmosphere Flux [Jung et al. 2010]),              3,               5,           2,      Yes,    Yes,       Yes,          Yes,           No
+rlns (Surface Net LW Radiation),           CERES (CERES [Kato et al. 2013]),                                  4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rlns (Surface Net LW Radiation),           GEWEX.SRB (GEWEX-SRB [Stackhouse et al. 2011]),                    4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rlns (Surface Net LW Radiation),           WRMC.BSRN (WRMC-BSRN [Kong-Langl et al. 2013]),                    4,               3,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rlus (Surface Upward LW Radiation),        CERES (CERES [Kato et al. 2013]),                                  4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rlus (Surface Upward LW Radiation),        GEWEX.SRB (GEWEX-SRB [Stackhouse et al. 2011]),                    4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rlus (Surface Upward LW Radiation),        WRMC.BSRN (WRMC-BSRN [Kong-Langl et al. 2013]),                    4,               3,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rns (Surface Net Radiation),               CERES (CERES [Kato et al. 2013]),                                  4,               5,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+rns (Surface Net Radiation),               FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     4,               3,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+rns (Surface Net Radiation),               GEWEX.SRB (GEWEX-SRB [Stackhouse et al. 2011]),                    4,               5,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+rns (Surface Net Radiation),               WRMC.BSRN (WRMC-BSRN [Kong-Langl et al. 2013]),                    4,               3,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+rsns (Surface Net SW Radiation),           CERES (CERES [Kato et al. 2013]),                                  4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rsns (Surface Net SW Radiation),           GEWEX.SRB (GEWEX-SRB [Stackhouse et al. 2011]),                    4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rsns (Surface Net SW Radiation),           WRMC.BSRN (WRMC-BSRN [Kong-Langl et al. 2013]),                    4,               3,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rsus (Surface Upward SW Radiation),        CERES (CERES [Kato et al. 2013]),                                  4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rsus (Surface Upward SW Radiation),        GEWEX.SRB (GEWEX-SRB [Stackhouse et al. 2011]),                    4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rsus (Surface Upward SW Radiation),        WRMC.BSRN (WRMC-BSRN [Kong-Langl et al. 2013]),                    4,               3,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+pr (Precipitation),                        GPCC (GPCC v6 [Schneider et al. 2013]),                            4,               5,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+pr (Precipitation),                        GPCP2 (GPCP v2.4 [Adler et al. 2012]),                             4,               5,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+pr (Precipitation),                        FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     3,               3,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+rhums (Surface Relative Humidity),         ERA (ERA-interim [Dee et al. 2011]),                               2,               5,           3,      Yes,    Yes,       Yes,          Yes,          Yes 
+tas (Surface Air Temperature),             CRU (CRU v3.21 [Harris et al. 2013]),                              5,               5,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+tas (Surface Air Temperature),             FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     3,               3,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+rlds (Surface Downward LW Radiation),      CERES (CERES [Kato et al. 2013]),                                  4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rlds (Surface Downward LW Radiation),      GEWEX.SRB (GEWEX-SRB [Stackhouse et al. 2011]),                    4,               5,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rlds (Surface Downward LW Radiation),      WRMC.BSRN (WRMC-BSRN [Kong-Langl et al. 2013]),                    4,               3,           1,      Yes,    Yes,       Yes,          Yes,          Yes
+rsds (Surface Donwward SW Radiation),      CERES (CERES [Kato et al. 2013]),                                  4,               5,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+rsds (Surface Donwward SW Radiation),      FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     4,               3,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+rsds (Surface Donwward SW Radiation),      GEWEX.SRB (GEWEX-SRB [Stackhouse et al. 2011]),                    4,               5,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+rsds (Surface Donwward SW Radiation),      WRMC.BSRN (WRMC-BSRN [Kong-Langl et al. 2013]),                    4,               3,           2,      Yes,    Yes,       Yes,          Yes,          Yes
