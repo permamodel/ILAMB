@@ -3,19 +3,17 @@
 #PBS -l walltime=4:00:00
 #PBS -N ILAMB.$PBS_O_LOGNAME
 #
-# ILAMB execution script adapted for the `torque` queue
+# ILAMB execution script adapted to run on `beach` through its queue
 # manager. Submit this script with:
 #
 #   $ qsub run_ilamb.sh
 # 
 
-# ILAMB needs the ILAMB_ROOT var.
+# Configure ILAMB dependencies and paths.
+tools_dir=/home/csdms/tools
+export NCARG_ROOT=$tools_dir/ncl
+PATH=$NCARG_ROOT/bin:$tools_dir/ImageMagick/bin:$PATH
 export ILAMB_ROOT=/scratch/pbs/ilamb
-echo $ILAMB_ROOT
-
-# NCL needs the NCARG_ROOT var, as well as the path to its executable.
-export NCARG_ROOT=/home/csdms/tools/ncl
-PATH=$NCARG_ROOT/bin:$PATH
 
 # Define model simulation type, CLM or CMIP5.
 export MODELTYPE=CMIP5
@@ -27,6 +25,7 @@ export SPATRES=0.5x0.5
 export PLOTTYPE=png
 
 cd $PBS_O_WORKDIR
+echo $ILAMB_ROOT
 date
 ncl -n main_ncl_code.ncl
 date
