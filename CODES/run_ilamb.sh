@@ -35,7 +35,6 @@ cd $ILAMB_ROOT ; echo $ILAMB_ROOT
 cd CODES
 echo "ILAMB start:" `date`
 ncl -n main_ncl_code.ncl > $ILAMB_ROOT/OUTPUT/ILAMB.stdout
-# cd $ILAMB_ROOT
 echo "ILAMB finish:" `date`
 
 # Package results.
