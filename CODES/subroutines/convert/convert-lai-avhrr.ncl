@@ -70,7 +70,7 @@ TimeStep    = "monthly"
 ; ----------------  reading in AVHRR lai  ---------------
 print("reading in AVHRR LAI")
 
-datadir="$ILAMB_ROOT/DATA/lai/AVHRR"
+datadir="$ILAMB_DATADIR/lai/AVHRR"
 
    ijk=0
 do iiy = StartYear, EndYear

@@ -52,7 +52,7 @@ end do
 
 time = int2dble(ijk)
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/landfraction/MODIS"
+datadir= getenv("ILAMB_DATADIR") + "/landfraction/MODIS"
 
 FileIn=datadir + "/original/landfraction_MODIS_IGBP_" + sprinti("%0.4i",iyear) + "_top18.dat"
 print(FileIn)
@@ -71,7 +71,7 @@ temp&lat@units="degrees_north"
 
 data = 1.0 - temp(0,:,:) - temp(15,:,:) - temp(17,:,:)
 
-FileIn=getenv("ILAMB_ROOT") + "/DATA/mask/original/mask_landsea_0.5x0.5.txt"
+FileIn=getenv("ILAMB_DATADIR") + "/mask/original/mask_landsea_0.5x0.5.txt"
 print(FileIn)
 
 temp0=asciiread(FileIn,(/nlat,nlon/),"integer")

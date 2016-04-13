@@ -29,7 +29,7 @@ end do
 
 time = int2dble(ijk)
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/mask"
+datadir= getenv("ILAMB_DATADIR") + "/mask"
 
 FileIn=datadir + "/original/mask_landsea_0.5x0.5.txt"
 print(FileIn)

@@ -23,7 +23,7 @@ lon=fspan(-179.75,179.75,nlon)
 datadir="/gdata/randerson3/mmu/ILAMB/DATA/sst/CRU"
 
 ; -------- read regions data ----------------
-fina="$ILAMB_ROOT/DATA/GFED_regions/basis0.5x0.5.15regions_mod+noGreenland"
+fina="$ILAMB_DATADIR/GFED_regions/basis0.5x0.5.15regions_mod+noGreenland"
 region0=asciiread(fina,(/nlat,nlon/),"integer")
 region=int2flt(region0(::-1,:))
 delete(region0)

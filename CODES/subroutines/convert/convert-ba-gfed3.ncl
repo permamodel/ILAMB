@@ -51,7 +51,7 @@ lon=fspan(-178.75,178.75,nlon)
 ; ++++++++++++ save data in netcdf format ++++++++++++++++
 VarName     = "desert"
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/biomes/MODIS"
+datadir= getenv("ILAMB_DATADIR") + "/biomes/MODIS"
 
 ; +++++++ read desert data in 0.5x0.5 ++++++++
 ;FileIn=datadir + "/derived/" + "desert_0.5x0.5.nc"
@@ -90,7 +90,7 @@ time = int2dble(ijk)
 ; ----------------  reading in GFED3.1  ---------------
 print("reading in GFED3.1 original Burned Area")
 
-datadir="$ILAMB_ROOT/DATA/burntArea/GFED3"
+datadir="$ILAMB_DATADIR/burntArea/GFED3"
 
 ; ------------ obs ----------------------
 BenchMarkRaw = "yes"

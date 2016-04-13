@@ -50,7 +50,7 @@ end do
 
 time = int2dble(ijk)
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/biomes/GFED"
+datadir= getenv("ILAMB_DATADIR") + "/biomes/GFED"
 
 FileIn=datadir + "/original/basis0.5x0.5.15regions_mod+noGreenland"
 print(FileIn)
@@ -61,7 +61,7 @@ data1=int2flt(temp(::-1,:))
 delete(temp)
 
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/biomes/Gretchen_GFED_Regions"
+datadir= getenv("ILAMB_DATADIR") + "/biomes/Gretchen_GFED_Regions"
 
 FileIn=datadir + "/original/AtmosphericPulseRegions.txt"
 print(FileIn)

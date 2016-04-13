@@ -31,9 +31,9 @@ site2 = (/3,8,12,13,16,18,29,31,38,48,57,69,71,85,92,115,116,117,130/)
 
 ;+++++++++++++++++++++++++ load FluxNet file names+++++++++++++++++++++++++++++
 
-DataDir = getenv("ILAMB_ROOT")
+DataDir = getenv("ILAMB_DATADIR")
 
-DataFileNameS = systemfunc("ls " + DataDir + "/DATA/nee/FLUXNET/original/*.monthly.nc")
+DataFileNameS = systemfunc("ls " + DataDir + "/nee/FLUXNET/original/*.monthly.nc")
 
 print(DataFileNameS)
 
@@ -464,7 +464,7 @@ do iim=1,nmon
 
    ts = pre(:,ijk)
 
-   FileOut=DataDir + "/DATA/pr/FLUXNET/derived/" + sprinti("%0.4i",iiy) + \
+   FileOut=DataDir + "/pr/FLUXNET/derived/" + sprinti("%0.4i",iiy) + \
            "/" + str_lower(VarName) + "_" + sprinti("%0.4i",iiy) + sprinti("%0.2i",iim) + ".nc"
 
    print(FileOut)

@@ -76,9 +76,9 @@ TimeStep    = "monthly"
 
 print("reading in GEWEX SRB Radiation")
 
-datadir0="$ILAMB_ROOT/DATA/rns/GEWEX.SRB"
+datadir0="$ILAMB_DATADIR/rns/GEWEX.SRB"
 
-datadir="$ILAMB_ROOT/DATA/" + VarName + "/GEWEX.SRB"
+datadir="$ILAMB_DATADIR/" + VarName + "/GEWEX.SRB"
 
    ijk=0
 do iiy = StartYear, EndYear

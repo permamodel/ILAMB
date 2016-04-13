@@ -94,7 +94,7 @@ end do
 
 time = int2dble(ijk)
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/runoff/GRDC"
+datadir= getenv("ILAMB_DATADIR") + "/runoff/GRDC"
 
 FileIn=datadir + "/original/obs_ro01.grd"
 print(FileIn)

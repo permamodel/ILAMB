@@ -69,7 +69,7 @@ end do
 
 time = int2dble(ijk)
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/landfraction/MODIS"
+datadir= getenv("ILAMB_DATADIR") + "/landfraction/MODIS"
 
 FileIn=datadir + "/original/landfraction_MODIS_IGBP_" + sprinti("%0.4i",iyear) + "_top18.dat"
 print(FileIn)
@@ -154,7 +154,7 @@ do nx=0,nlon-1
 end do
 end do
 
-;FileIn=getenv("ILAMB_ROOT") + "/DATA/mask/original/mask_landsea_0.5x0.5.txt"
+;FileIn=getenv("ILAMB_DATADIR") + "/mask/original/mask_landsea_0.5x0.5.txt"
 ;print(FileIn)
 ;
 ;temp0=asciiread(FileIn,(/nlat,nlon/),"integer")
@@ -186,7 +186,7 @@ Source      = "MODIS (MOD12C1) IGBP in 2004"
 TimeStep    = "annual"
 type        = "all areas excep water, snow, ice and unclassified types from MODIS (MOD12C1) IGBP"
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/biomes/MODIS"
+datadir= getenv("ILAMB_DATADIR") + "/biomes/MODIS"
 
 FileOut=datadir + "/derived/" + "biomes_MODIS_0.5x0.5.nc"
 print(FileOut)

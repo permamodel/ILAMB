@@ -16,10 +16,10 @@ ntot=nyer*nmon
 
 nday= (/31,28,31,30,31,30,31,31,30,31,30,31/)
 
-DataDir = getenv("ILAMB_ROOT")
+DataDir = getenv("ILAMB_DATADIR")
 
 ;+++++++++++++++++++++++ read NOAA GMD CO2 site geo information ++++++++++++
-filename =DataDir + "/DATA/co2/NOAA.GMD/original/Sites_GeoInfo_NOAA.GMD.data"
+filename =DataDir + "/co2/NOAA.GMD/original/Sites_GeoInfo_NOAA.GMD.data"
 
 print(filename)
 
@@ -38,7 +38,7 @@ delete(fdata)
 
 ;+++++++++++++++++++++++ read NOAA GMD monthly CO2 ++++++++++++
 
-DataFileNameS = systemfunc("ls " + DataDir + "/DATA/co2/NOAA.GMD/original/co2_*_month.txt")
+DataFileNameS = systemfunc("ls " + DataDir + "/co2/NOAA.GMD/original/co2_*_month.txt")
 
 print(DataFileNameS)
 
@@ -189,7 +189,7 @@ do iim=1,nmon
 
    ts = co2(:,ijk)
 
-   FileOut = DataDir + "/DATA/co2/NOAA.GMD/derived/" + sprinti("%0.4i",iiy) + \
+   FileOut = DataDir + "/co2/NOAA.GMD/derived/" + sprinti("%0.4i",iiy) + \
            "/" + str_lower(VarName) + "_" + sprinti("%0.4i",iiy) + sprinti("%0.2i",iim) + ".nc"
    print(FileOut)
    tttt = write_1D_MultiSites_netcdf (VarName, VarLongName, VarUnit, Title, Source, TimeStep, \

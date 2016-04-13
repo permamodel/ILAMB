@@ -53,7 +53,7 @@ TimeStep    = "monthly"
 ; ----------------  reading in AVHRR lai  ---------------
 print("reading in JPL GRACE Tellus")
 
-datadir="$ILAMB_ROOT/DATA/twsa/GRACE"
+datadir="$ILAMB_DATADIR/twsa/GRACE"
 
 do iiy = StartYear, EndYear
    print(iiy)

@@ -55,7 +55,7 @@ TimeStep    = "monthly"
 ; ----------------  reading in AVHRR lai  ---------------
 print("reading in JPL GRACE Tellus")
 
-datadir="$ILAMB_ROOT/DATA/twsc/GRACE"
+datadir="$ILAMB_DATADIR/twsc/GRACE"
 
 FileIn1=datadir + "/original/CLM4.SCALE_FACTOR.DS.G300KM.RL05.DSTvSCS1401.nc"
 FileIn2=datadir + "/original/GRCTellus.JPL.200204_201312.LND.RL05.DSTvSCS1401.nc"
@@ -78,7 +78,7 @@ if (fileexists(FileIn1)) then
 
 end if
 
-datadir="$ILAMB_ROOT/DATA/twsa/GRACE"
+datadir="$ILAMB_DATADIR/twsa/GRACE"
 
    ijk=0
 do iiy = StartYear, EndYear

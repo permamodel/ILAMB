@@ -13,7 +13,7 @@ nlon=720
 smon=['jan';'feb';'mar';'apr';'may';'jun';'jul';'aug';'sep';'oct';'nov';'dec']
 smon
 
-datadir='$ILAMB/DATA/lai/AVHRR/'
+datadir='$ILAMB_DATADIR/lai/AVHRR/'
 
 for (iiy=1982:2010)
 for (iim=1:12)

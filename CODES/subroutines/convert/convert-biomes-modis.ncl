@@ -53,7 +53,7 @@ time = int2dble(ijk)
 
 ; -------------------------------
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/MODIS/"
+datadir= getenv("ILAMB_DATADIR") + "/MODIS/"
 
 temp=new((/ncls,nlat0,nlon0/), float)
 types=new((/18/), string)
@@ -62,7 +62,7 @@ temp = 0.0
 
 do iiy = 2003, 2012
 
-   FileName = getenv("ILAMB_ROOT") + "/DATA/MODIS/MCD12C1/" + sprinti("%0.4i",iiy) + "/MCD12C1.A" + sprinti("%0.4i",iiy)
+   FileName = datadir + "MCD12C1/" + sprinti("%0.4i",iiy) + "/MCD12C1.A" + sprinti("%0.4i",iiy)
 
    FileIn = systemfunc("ls " + FileName + "*.hdf")
 
@@ -169,7 +169,7 @@ Title       = "derived MODIS IGBP 18 Land types"
 Source      = "MODIS MOD12C1 product"
 TimeStep    = "annual"
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/biomes/MODIS"
+datadir= getenv("ILAMB_DATADIR") + "/biomes/MODIS"
 
 ; +++++++ save data in 0.5x0.5 ++++++++
 ;FileOut=datadir + "/derived/" + "biomes_0.5x0.5.nc"

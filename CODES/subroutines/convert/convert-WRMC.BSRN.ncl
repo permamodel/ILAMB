@@ -31,9 +31,9 @@ type        = "BSRN"
 
 ;+++++++++++++++++++++++++ load WRMC.BSRN file names+++++++++++++++++++++++++++++
 
-DataDir = getenv("ILAMB_ROOT")
+DataDir = getenv("ILAMB_DATADIR")
 
-DataFileNameS = systemfunc("ls " + DataDir + "/DATA/" + str_lower(VarName) + "/WRMC.BSRN/original/*_1992-2012.txt")
+DataFileNameS = systemfunc("ls " + DataDir + "/" + str_lower(VarName) + "/WRMC.BSRN/original/*_1992-2012.txt")
 
 print(DataFileNameS)
 
@@ -143,7 +143,7 @@ do iim=1,nmon
 
    ts = rsns(:,ijk)
 
-   FileOut=DataDir + "/DATA/" + str_lower(VarName) + "/WRMC.BSRN/derived/" + sprinti("%0.4i",iiy) + \
+   FileOut=DataDir + "/" + str_lower(VarName) + "/WRMC.BSRN/derived/" + sprinti("%0.4i",iiy) + \
            "/" + str_lower(VarName) + "_" + sprinti("%0.4i",iiy) + sprinti("%0.2i",iim) + ".nc"
 
    print(FileOut)

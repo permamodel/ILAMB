@@ -70,7 +70,7 @@ TimeStep    = "monthly"
 ; ----------------  reading in AVHRR lai  ---------------
 print("reading in JPL GRACE Tellus")
 
-datadir="$ILAMB_ROOT/DATA/" + VarName + "/GRACE"
+datadir="$ILAMB_DATADIR/" + VarName + "/GRACE"
 
 FileIn1=datadir + "/original/CLM4.SCALE_FACTOR.DS.G300KM.RL05.DSTvSCS1409.nc"
 FileIn2=datadir + "/original/GRCTellus.CSR.200204_201409.LND.RL05.DSTvSCS1409.nc"

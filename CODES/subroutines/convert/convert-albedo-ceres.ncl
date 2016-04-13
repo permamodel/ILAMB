@@ -79,7 +79,7 @@ TimeStep    = "monthly"
 
 print("reading in CERES Radiation")
 
-datadir="$ILAMB_ROOT/DATA/" + VarName + "/CERES"
+datadir="$ILAMB_DATADIR/" + VarName + "/CERES"
 
 FileIn=datadir + "/original/CERES_EBAF-Surface_Ed2.7_Subset_200003-201303.nc"
 

@@ -7,9 +7,7 @@ load "$ILAMB_ROOT/CODES/subroutines/write/write_1D_SingleSite_netcdf.ncl"
 
 begin
 
-  DataDir = getenv("ILAMB_ROOT")
-
-  DataDir = DataDir + "/DATA/nbp/GCP"
+  DataDir = getenv("ILAMB_DATADIR") + "/nbp/GCP"
 
   nday= (/31,28,31,30,31,30,31,31,30,31,30,31/)
 

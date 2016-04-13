@@ -73,7 +73,7 @@ end do
 
 time = int2dble(ijk)
 
-datadir= getenv("ILAMB_ROOT") + "/DATA/biomes/GFED"
+datadir= getenv("ILAMB_DATADIR") + "/biomes/GFED"
 
 FileIn=datadir + "/original/basis0.5x0.5.15regions_mod+noGreenland"
 ;FileIn=datadir + "/original/basis1x1.15regions.txt"

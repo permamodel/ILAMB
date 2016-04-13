@@ -13,9 +13,7 @@ begin
   nyer    = EndYr - StartYr + 1
   ntot    = nyer*nmon
 
-  DataDir = getenv("ILAMB_ROOT")
-
-  DataDir = DataDir + "/DATA/co2/MAUNA.LOA"
+  DataDir = getenv("ILAMB_DATADIR") + "/co2/MAUNA.LOA"
 
   nday= (/31,28,31,30,31,30,31,31,30,31,30,31/)
 

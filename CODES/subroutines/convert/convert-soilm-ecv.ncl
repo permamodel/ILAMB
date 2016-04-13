@@ -76,7 +76,7 @@ TimeStep    = "monthly"
 ; ----------------  reading in AVHRR lai  ---------------
 print("reading in ECV soil moisture")
 
-datadir="$ILAMB_ROOT/DATA/soilm/ECV"
+datadir="$ILAMB_DATADIR/soilm/ECV"
 
 do iiy = StartYear, EndYear
    print(iiy)
