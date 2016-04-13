@@ -118,7 +118,7 @@ do ns=0,nsur-1
   delete(KeyWord0)
 
   ; +++++ Install required Data readme files++++
-  ReadmeInitial = DataDir + "/DATA/" + VarName + "/" + str_upper(Source) + "/original/readme"
+  ReadmeInitial = getenv("ILAMB_DATADIR") + "/" + VarName + "/" + str_upper(Source) + "/original/readme"
   ReadmeFinal   = DataDir + "/OUTPUT/readme/readme_" + str_lower(VarName) + "_" + str_upper(Source)
 
   system ("/bin/cp -f " + ReadmeInitial + " " + ReadmeFinal)

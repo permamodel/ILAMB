@@ -3,13 +3,13 @@ function check_AllDataSources (VarName:string)
 begin
 
 ; ++++++++++++++ retrieve ILAMB Root +++++++++++++++
-ILAMBDir = getenv("ILAMB_ROOT")
+ILAMB_DATADIR = getenv("ILAMB_DATADIR")
 
 print("                                                                       ")
 print("--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->")
 print("Searching All Benchmark Data Sources for the Variable: " + VarName)
 
-DataDir = ILAMBDir + "/DATA/" + VarName
+DataDir = ILAMB_DATADIR + "/" + VarName
 
 DataList = systemfunc ("ls " + DataDir)
 

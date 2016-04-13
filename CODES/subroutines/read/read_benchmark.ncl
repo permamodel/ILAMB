@@ -1,13 +1,14 @@
-;#######################################################################################################################
+#######################################################################################################################
 function read_benchmark (varID:string, Source:string, StartYear:integer, EndYear:integer)
 
 begin
 
 ILAMB_ROOT = getenv("ILAMB_ROOT")
+ILAMB_DATADIR = getenv("ILAMB_DATADIR") 
 SpatRes    = getenv("SPATRES")
 
 ; ++++++++ DataDir + "/" + varID + "/derived/" + varID + "*.nc" +++++++++++++
-DataDir    = ILAMB_ROOT + "/DATA/"  + varID + "/" + str_upper(Source) + "/derived"
+DataDir    = ILAMB_DATADIR + "/"  + varID + "/" + str_upper(Source) + "/derived"
 
 nyer=EndYear-StartYear + 1
 nmon=12
@@ -22,7 +23,7 @@ RR0       = constants@Radian
 
 ;===================================================================  
 ; -------- read land fraction data ----------------
-fina=ILAMB_ROOT + "/DATA/landfraction/MODIS/derived/landfraction_MODIS_0.5x0.5.nc"
+fina=ILAMB_DATADIR + "/landfraction/MODIS/derived/landfraction_MODIS_0.5x0.5.nc"
 
 f1 = addfile (fina, "r")
 landfrac=f1->landfraction

@@ -55,7 +55,7 @@ ts0_mod = ts_mod/results
 delete(results)
 
 ; -------- read land fraction data ----------------
-fina=DataDir + "/DATA/landfraction/MODIS/derived/landfraction_MODIS_0.5x0.5.nc"
+fina=getenv("ILAMB_DATADIR") + "/landfraction/MODIS/derived/landfraction_MODIS_0.5x0.5.nc"
 
 f1 = addfile (fina, "r")
 landf=f1->landfraction
@@ -875,7 +875,7 @@ delete(tlon)
 delete(results)
 
 ; -------- read biome regions data ----------------
-fina=DataDir + "/DATA/biomes/GFED/derived/biomes_0.5x0.5.nc"
+fina=getenv("ILAMB_DATADIR") + "/biomes/GFED/derived/biomes_0.5x0.5.nc"
 
 f1 = addfile (fina, "r")
 region0=f1->biomes
@@ -1633,7 +1633,7 @@ landf_obs@_FillValue = -999
 landf_mod@_FillValue = -999
 
 ; -------- read biome regions data ----------------
-fina=DataDir + "/DATA/biomes/" + str_upper(SubReg1) + "/derived/biomes_0.5x0.5.nc"
+fina=getenv("ILAMB_DATADIR") + "/biomes/" + str_upper(SubReg1) + "/derived/biomes_0.5x0.5.nc"
 
 f1 = addfile (fina, "r")
 region0=f1->biomes
