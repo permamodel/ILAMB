@@ -47,7 +47,7 @@ ts_mod=-999
 
 if (str_lower(ModelRaw).eq."yes")
 
-   DataDirMod = DataDir + "/MODELS/original/"
+   DataDirMod = getenv("ILAMB_MODELSDIR") + "/original/"
 
 do nv=0, nmod-1
 
@@ -803,7 +803,7 @@ if (NumRun(nv).gt.0) then
 end if
 end do
 else
-   DataDirMod = DataDir + "/MODELS/derived/"
+   DataDirMod = getenv("ILAMB_MODELSDIR") + "/derived/"
 end if
 
 ts_mod@_FillValue=-999

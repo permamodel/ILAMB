@@ -20,9 +20,9 @@ NumRun = 0
 do nd=0, nmod-1
 
    if (str_lower(ModelRaw).eq."yes")
-      ModelDir = ILAMBDir + "/MODELS" + "/original/" + ModelNames(nd) + "/" + VarName
+      ModelDir = getenv("ILAMB_MODELSDIR") + "/original/" + ModelNames(nd) + "/" + VarName
    else
-      ModelDir = ILAMBDir + "/MODELS" + "/derived/" + ModelNames(nd) + "/" + VarName
+      ModelDir = getenv("ILAMB_MODELSDIR") + "/derived/" + ModelNames(nd) + "/" + VarName
    end if
 
    FileList = systemfunc ("ls " + ModelDir + "/" + VarName + "_" \
