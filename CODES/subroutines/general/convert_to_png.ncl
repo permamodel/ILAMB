@@ -17,10 +17,10 @@ print("Converting plot files to PNG")
 
 if (nvar.gt.1) then
    do nv=0,nvar-1
-      KeyWords = systemfunc ("ls " + DataDir + "/OUTPUT/" + str_lower(VarNames(nv)))
+      KeyWords = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)))
       if (dimsizes(KeyWords).gt.1) then
          do nk=0,dimsizes(KeyWords)-1
-            DataDirPlot = DataDir + "/OUTPUT/" + str_lower(VarNames(nv)) + "/" + KeyWords(nk)
+            DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)) + "/" + KeyWords(nk)
             ;EpsFiles = systemfunc ("ls " + DataDirPlot + "/" + KeyWords(nk) + "*.eps")
             EpsFiles = systemfunc ("ls " + DataDirPlot + "/" + "*." + PlotType)
             system ("cd " + DataDirPlot)
@@ -61,7 +61,7 @@ if (nvar.gt.1) then
          end do
       else
          if (.not.ismissing(KeyWords)) then
-            DataDirPlot = DataDir + "/OUTPUT/" + str_lower(VarNames(nv)) + "/" + KeyWords
+            DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)) + "/" + KeyWords
             ;EpsFiles = systemfunc ("ls " + DataDirPlot + "/" + KeyWords + "*.eps")
             EpsFiles = systemfunc ("ls " + DataDirPlot + "/" + "*." + PlotType)
             system ("cd " + DataDirPlot)
@@ -105,10 +105,10 @@ if (nvar.gt.1) then
    end do
 else
    if (.not.ismissing(VarNames)) then
-      KeyWords = systemfunc ("ls " + DataDir + "/OUTPUT/" + str_lower(VarNames))
+      KeyWords = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames))
       if (dimsizes(KeyWords).gt.1) then
          do nk=0,dimsizes(KeyWords)-1
-            DataDirPlot = DataDir + "/OUTPUT/" + str_lower(VarNames) + "/" + KeyWords(nk)
+            DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/" + KeyWords(nk)
             ;EpsFiles = systemfunc ("ls " + DataDirPlot + "/" + KeyWords(nk) + "*.eps")
             EpsFiles = systemfunc ("ls " + DataDirPlot + "/" + "*." + PlotType)
             system ("cd " + DataDirPlot)
@@ -149,7 +149,7 @@ else
          end do
       else
          if (.not.ismissing(KeyWords)) then
-            DataDirPlot = DataDir + "/OUTPUT/" + str_lower(VarNames) + "/" + KeyWords
+            DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/" + KeyWords
             ;EpsFiles = systemfunc ("ls " + DataDirPlot + "/" + KeyWords + "*.eps")
             EpsFiles = systemfunc ("ls " + DataDirPlot + "/" + "*." + PlotType)
             system ("cd " + DataDirPlot)
@@ -193,7 +193,7 @@ else
    end if
 end if
 
-DataDirPlot = DataDir + "/OUTPUT/summary"
+DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/summary"
 EpsFiles = systemfunc ("ls " + DataDirPlot + "/overallscore*." + PlotType)
 system ("cd " + DataDirPlot)
 if (dimsizes(EpsFiles).gt.1) then
@@ -223,7 +223,7 @@ else
 end if
 delete(EpsFiles)
 
-DataDirPlot = DataDir + "/OUTPUT/relationships"
+DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/relationships"
 EpsFiles = systemfunc ("ls " + DataDirPlot + "/*." + PlotType)
 system ("cd " + DataDirPlot)
 if (dimsizes(EpsFiles).gt.1) then
@@ -253,7 +253,7 @@ else
 end if
 delete(EpsFiles)
 
-DataDirPlot = DataDir + "/OUTPUT/v2vscore"
+DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/v2vscore"
 EpsFiles = systemfunc ("ls " + DataDirPlot + "/*." + PlotType)
 system ("cd " + DataDirPlot)
 if (dimsizes(EpsFiles).gt.1) then

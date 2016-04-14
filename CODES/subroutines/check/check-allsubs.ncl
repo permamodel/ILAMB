@@ -273,7 +273,7 @@ tts@_FillValue=-999
 AnualObs@_FillValue=-999
 
 
-TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/check/locations_" + str_lower(varID) \
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/check/locations_" + str_lower(varID) \
          + "_" + str_upper(Source) + ".txt"
 
 print(TableFileName)
@@ -308,7 +308,7 @@ ShortName = ""
 clat      = -999
 clon      = -999
 
-PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/check/annualmean_" + str_lower(varID) \
+PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/check/annualmean_" + str_lower(varID) \
              + "_" + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
 titles       = "Annual Mean for " + str_upper(varID) + " (" + Unit + "): " + Source
@@ -326,7 +326,7 @@ end if
 
 do ns=0, nsit-1
 
-  PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/check/check_point" + sprinti("%i",ns+1) \
+  PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/check/check_point" + sprinti("%i",ns+1) \
                + "_" + str_lower(varID) + "_cmip5.vs." + str_upper(Source) \
                + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
   print(PlotFileName)
@@ -693,7 +693,7 @@ ShortName = ""
 clat      = -999
 clon      = -999
 
-TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/check/locations_" + str_lower(varID) \
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/check/locations_" + str_lower(varID) \
          + "_" + str_upper(Source) + ".txt"
 
 print(TableFileName)
@@ -722,7 +722,7 @@ delete(header2)
 
 ;  --------  Draw global annual mean ------------
 
-PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/check/annualmean_" + str_lower(varID) \
+PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/check/annualmean_" + str_lower(varID) \
              + "_" + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
 titles          = "Annual Mean for " + str_upper(varID) + " (" + Unit + "): " + Source
@@ -808,7 +808,7 @@ if (any(.not.ismissing(tts(:,ns,:)))) then
        tt1@_FillValue = -999
        tt2@_FillValue = -999
 
-       PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/check/check_point" + sprinti("%i",ns+1) \
+       PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/check/check_point" + sprinti("%i",ns+1) \
                     + "_" + str_lower(varID) + "_" + ModelName0 + ".vs." + str_upper(Source) \
                     + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
        print(PlotFileName)
@@ -1384,7 +1384,7 @@ ModelNameList(0)=Source
 ModelNameList(1:nmod)=ModelNames
 
 ; -------Save sub-region information for later use ------------------------
-TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/locations_" + str_lower(varID) \
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/locations_" + str_lower(varID) \
               + "_" + str_upper(Source) + ".txt"
 
 header1 = "Total sub-region analysis for " + str_lower(varID) + " from " + str_upper(Source)
@@ -1475,7 +1475,7 @@ else
    AnualM@DrawType   = "GLOBAL"
 end if
 
-PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/map_biomes_" + str_upper(SubReg1)
+PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/map_biomes_" + str_upper(SubReg1)
 
 titles       = "Zonal Mean Analysis"
 
@@ -1493,7 +1493,7 @@ Draw_Map (PlotFileName, region, rlat, rlon, titles, cnlevels, lblabels, XLab, YL
 if (dimsizes(ind(.not.ismissing(anual(0,:)))).gt.1 .or. .not.ismissing(ind(.not.ismissing(anual(0,:))))) then
 
   do nv = 0, nmod
-     PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/annualmean_" + str_lower(varID) \
+     PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/annualmean_" + str_lower(varID) \
                   + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                   + "-" + sprinti("%0.4i",EndYear)
      print(PlotFileName)
@@ -1545,7 +1545,7 @@ do nv = 0, nmod
      tt1@_FillValue = -999
      tt2@_FillValue = -999
 
-     PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/check_subreg" + sprinti("%i",nr+1) \
+     PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/check_subreg" + sprinti("%i",nr+1) \
                   + "_" + str_lower(varID) + "_" + ModelName0 + ".vs." + str_upper(Source) \
                   + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
@@ -2119,7 +2119,7 @@ ModelNameList(0)=Source
 ModelNameList(1:nmod)=ModelNames
 
 ; -------Save sub-region information for later use ------------------------
-TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/locations_" + str_lower(varID) \
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/locations_" + str_lower(varID) \
               + "_" + str_upper(Source) + ".txt"
 
 header1 = "Total sub-region analysis for " + str_lower(varID) + " from " + str_upper(Source)
@@ -2209,7 +2209,7 @@ region@NAME = ShortName
 region@Lons = clon
 region@Lats = clat
 
-PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/map_biomes_" + str_upper(SubReg1)
+PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/map_biomes_" + str_upper(SubReg1)
 
 titles       = "Biome Regions from " + str_upper(SubReg1)
 
@@ -2227,7 +2227,7 @@ lblabels = results@lblabels
 if (dimsizes(ind(.not.ismissing(anual(0,:)))).gt.1 .or. .not.ismissing(ind(.not.ismissing(anual(0,:))))) then
 
   do nv = 0, nmod
-     PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/annualmean_" + str_lower(varID) \
+     PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/annualmean_" + str_lower(varID) \
                   + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                   + "-" + sprinti("%0.4i",EndYear)
      print(PlotFileName)
@@ -2279,7 +2279,7 @@ do nv = 0, nmod
      tt1@_FillValue = -999
      tt2@_FillValue = -999
 
-     PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/check_subreg" + sprinti("%i",nr+1) \
+     PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/check_subreg" + sprinti("%i",nr+1) \
                   + "_" + str_lower(varID) + "_" + ModelName0 + ".vs." + str_upper(Source) \
                   + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 

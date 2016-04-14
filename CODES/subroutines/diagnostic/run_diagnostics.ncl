@@ -119,7 +119,7 @@ do ns=0,nsur-1
 
   ; +++++ Install required Data readme files++++
   ReadmeInitial = getenv("ILAMB_DATADIR") + "/" + VarName + "/" + str_upper(Source) + "/original/readme"
-  ReadmeFinal   = DataDir + "/OUTPUT/readme/readme_" + str_lower(VarName) + "_" + str_upper(Source)
+  ReadmeFinal   = getenv("ILAMB_OUTPUTDIR") + "/readme/readme_" + str_lower(VarName) + "_" + str_upper(Source)
 
   system ("/bin/cp -f " + ReadmeInitial + " " + ReadmeFinal)
 

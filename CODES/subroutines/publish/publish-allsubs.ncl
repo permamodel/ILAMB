@@ -95,7 +95,7 @@ numb       = numb + 1
 body(numb) = "</html>"
 numb       = numb + 1
 
-HtmlFileName = "../OUTPUT/www/ilamb.html"
+HtmlFileName = getenv("ILAMB_OUTPUTDIR") + "/www/ilamb.html"
 
 asciiwrite(HtmlFileName,body(0:numb-1))
 
@@ -202,7 +202,7 @@ numb       = numb + 1
 body(numb) = "</HTML"
 numb       = numb + 1
 
-HtmlFileName = "../OUTPUT/www/ilamb-bottom.html"
+HtmlFileName = getenv("ILAMB_OUTPUTDIR") + "/www/ilamb-bottom.html"
 
 asciiwrite(HtmlFileName,body(0:numb-1))
 
@@ -217,7 +217,7 @@ quote = str_get_dq()
 
 nkey=dimsizes(CatName)
 
-HtmlCatWgt = "../OUTPUT/www/weights_overall_category.html"
+HtmlCatWgt = getenv("ILAMB_OUTPUTDIR") + "/www/weights_overall_category.html"
 
 body = new((/10000/), string)
 
@@ -352,7 +352,7 @@ swide  = sprinti("%i",(nkey+3+3)*100)
 
 AllShortVarName   = str_squeeze(str_get_field(AllVarName, 1, "("))
 
-HtmlCatWgt = "../OUTPUT/www/table_scoring_metrics.html"
+HtmlCatWgt = getenv("ILAMB_OUTPUTDIR") + "/www/table_scoring_metrics.html"
 
 body = new((/10000/), string)
 
@@ -577,7 +577,7 @@ swide  = sprinti("%i",(nmod+1)*100)
 
 ; ++++++ Create the html file +++++
 
-HtmlNumEns = "../OUTPUT/www/table_avail_models.html"
+HtmlNumEns = getenv("ILAMB_OUTPUTDIR") + "/www/table_avail_models.html"
 
 body = new((/10000/), string)
 
@@ -870,7 +870,7 @@ quote = str_get_dq()
 
 nkey=dimsizes(MetrixName)
 
-HtmlTableWgt = "../OUTPUT/www/weights_" + str_lower(VarName) + "_" + str_upper(Source) + ".html"
+HtmlTableWgt = getenv("ILAMB_OUTPUTDIR") + "/www/weights_" + str_lower(VarName) + "_" + str_upper(Source) + ".html"
 
 body = new((/10000/), string)
 
@@ -968,7 +968,7 @@ procedure create_table (HtmlTableName:string, HtmlPlotsName:string, VarNames:str
 begin
 
 DataDir = getenv("ILAMB_ROOT")
-DataDir0 = "../OUTPUT"
+DataDir0 = getenv("ILAMB_OUTPUTDIR") + ""
 
 DataInfo = retrieve_DataInfo (VarNames, Sources)
 
@@ -1033,7 +1033,7 @@ HtmlPlotsNameReg = new((/nmod/), string)
 
 if (str_lower(SubRegDiag).eq."yes") then
 
-   DataDirPlot1 = DataDir + "/OUTPUT/" + str_lower(VarNames) + "/biomes"
+   DataDirPlot1 = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/biomes"
    DataDirPlot2 = "../" + str_lower(VarNames) + "/biomes"
 
    PlotFileName1 = DataDirPlot1 + "/map_biomes_" + str_upper(SubReg1) + ".png" 
@@ -1085,7 +1085,7 @@ if (str_lower(SubRegDiag).eq."yes") then
 
       PlotsFileNamesReg = new((/nmod,nsit+1/), string)
 
-      DataDirPlot1 = DataDir + "/OUTPUT/" + str_lower(VarNames) + "/biomes"
+      DataDirPlot1 = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/biomes"
       DataDirPlot2 = "../" + str_lower(VarNames) + "/biomes"
 
       do nd = 0, nmod-1
@@ -1125,7 +1125,7 @@ if (str_lower(SubRegDiag).eq."yes") then
          HtmlPlotsNameReg(nd) = DataDir0 + "/www/plot_subreg" + "_" + str_lower(VarNames) + "_" + str_upper(Sources) + "_" + ModelName2 + ".html"
 
          create_check_plots (HtmlPlotsNameReg(nd), VarLongName, Sources, PlotsFileNamesReg(nd,0:nsit), latlon, Keys, SubReg2)
-         HtmlPlotsNameReg(nd) = str_sub_str(HtmlPlotsNameReg(nd), "../OUTPUT/www/", "")
+         HtmlPlotsNameReg(nd) = str_sub_str(HtmlPlotsNameReg(nd), getenv("ILAMB_OUTPUTDIR") + "/www/", "")
       end do
 
       delete(latlon)
@@ -1168,7 +1168,7 @@ if (nck.ge.1) then
 
       nck0 = nck
 
-      FileName2 = DataDir + "/OUTPUT/" + str_lower(VarNameSite) + "/check/locations_" + str_lower(VarNameSite) \
+      FileName2 = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNameSite) + "/check/locations_" + str_lower(VarNameSite) \
               + "_" + str_upper(SourceSite) + ".txt"
       print(FileName2)
 
@@ -1247,7 +1247,7 @@ if (nck.ge.1) then
          HtmlPlotsNameSite(nd) = DataDir0 + "/www/plot_check" + "_" + str_lower(VarNameSite) + "_" + str_upper(SourceSite) + "_" + ModelName + ".html"
     
          create_check_plots (HtmlPlotsNameSite(nd), VarLongNameSite, SourceSite, PlotsFileNamesSite(nd,0:nsit), latlon, KeySite, SubReg2)
-         HtmlPlotsNameSite(nd) = str_sub_str(HtmlPlotsNameSite(nd), "../OUTPUT/www/", "")
+         HtmlPlotsNameSite(nd) = str_sub_str(HtmlPlotsNameSite(nd), getenv("ILAMB_OUTPUTDIR") + "/www/", "")
 
       end do
 
@@ -1572,7 +1572,7 @@ function  create_html_table (HtmlTableName:string, HtmlPlotsName:string, VarName
 begin
 
 DataDir  = getenv("ILAMB_ROOT")
-DataDir0 = "../OUTPUT"
+DataDir0 = getenv("ILAMB_OUTPUTDIR") + ""
 
 ;results   = retrieve_others("Metrics", "-999")
 ;KeyWord0  = results@Category
@@ -1808,7 +1808,7 @@ Value@_FillVlue = -999
 
 do ns=0, nsur-1
 
-   HtmlTableWgt = "../OUTPUT/www/weights_" + str_lower(VarName) + "_" + str_upper(Sources(ns)) + ".html"
+   HtmlTableWgt = getenv("ILAMB_OUTPUTDIR") + "/www/weights_" + str_lower(VarName) + "_" + str_upper(Sources(ns)) + ".html"
 
    ; ++++++ create a table of weighting for each variable and each source  ++++++
    i50 = ind(WgtData(ns,:).ge.0)
@@ -1855,7 +1855,7 @@ procedure create_table_sources (HtmlTableName:string, HtmlTableNameSources:strin
 begin
 
 DataDir  = getenv("ILAMB_ROOT")
-DataDir0 = "../OUTPUT"
+DataDir0 = getenv("ILAMB_OUTPUTDIR") + ""
 
 quote = str_get_dq()
 
@@ -2187,7 +2187,7 @@ function  create_html_plots (VarName:string, Sources:string, KeyWords:string, St
 begin
 
 DataDir  = getenv("ILAMB_ROOT")
-DataDir0 = "../OUTPUT"
+DataDir0 = getenv("ILAMB_OUTPUTDIR") + ""
 
 ;results  = retrieve_others("Metrics", "-999")
 ;KeyWord  = results@Category
@@ -2333,7 +2333,7 @@ function  create_html_plots_all (VarName:string, Sources:string, KeyWords:string
 begin
 
 DataDir  = getenv("ILAMB_ROOT")
-DataDir0 = "../OUTPUT"
+DataDir0 = getenv("ILAMB_OUTPUTDIR") + ""
 
 nsur    = dimsizes(Sources)
 nmod    = dimsizes(ModelNames)
@@ -2711,7 +2711,7 @@ procedure create_main_page (HtmlPageName:string, VarNames:string, HtmlTableNames
 begin
 
 DataDir   = getenv("ILAMB_ROOT")
-DataDir0  = "../OUTPUT"
+DataDir0  = getenv("ILAMB_OUTPUTDIR") + ""
 
 nvar=dimsizes(VarNames)
 
@@ -2755,7 +2755,7 @@ end do
 
 ; ++++++++++ Read Weightings for categories +++++++++++
 
-TableFileName = DataDir + "/OUTPUT/summary/weights_category.txt"
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/weights_category.txt"
 
 if (fileexists(TableFileName)) then
    print(TableFileName)
@@ -3069,16 +3069,16 @@ delete(ijk)
 
 ;+++++++++++++++++++++++ Create html for the category's contribution ++++++++++++++++++++++++++++++++++++++
 HtmlCatWgt = create_category_weights (LongCatName, CatData)
-HtmlCatWgt = str_sub_str(HtmlCatWgt, "../OUTPUT/www/", "")
+HtmlCatWgt = str_sub_str(HtmlCatWgt, getenv("ILAMB_OUTPUTDIR") + "/www/", "")
 
 ;+++++++++++++++++++++++ Create html for the scoring metrics table ++++++++++++++++++++++++++++++++++++++
 HtmlScoring = create_scoring_metrics (LongCatName, CatData, VarNames, AllVarName, AllSourceName, AllCertainty, AllScale, \
                                       AllOverall, KeyWords, CatsID, AllSourceID, AllKeyWordID, bgcolors)
-HtmlScoring = str_sub_str(HtmlScoring, "../OUTPUT/www/", "")
+HtmlScoring = str_sub_str(HtmlScoring, getenv("ILAMB_OUTPUTDIR") + "/www/", "")
 
 ;+++++++++++++++++++++++ Create html for Model Availability ++++++++++++++++++++++++++++++++++++++
 HtmlNumEns = create_avail_models (CatName, CatsID, VarNames, ModelNames, NumEnsUsedID, NumEnsAvailID, bgcolors)
-HtmlNumEns = str_sub_str(HtmlNumEns, "../OUTPUT/www/", "")
+HtmlNumEns = str_sub_str(HtmlNumEns, getenv("ILAMB_OUTPUTDIR") + "/www/", "")
 
 delete(ModelNames)
 
@@ -3646,7 +3646,7 @@ do nk=0,nvpa-1
    HtmlPlotsName = DataDir0 + "/www/plot_" + str_lower(FuncList(nk)) + "_" + str_lower(Var1List(nk)) + ".vs." + str_lower(Var2List(nk)) + ".html"
 
    create_plots (HtmlPlotsName, VarLongName1, VarLongName2, Source1(nk), Source2(nk), ModelNames(nk,:), PlotsFileNames(nk,:))
-   HtmlPlotsName = str_sub_str(HtmlPlotsName, "../OUTPUT/www/", "")
+   HtmlPlotsName = str_sub_str(HtmlPlotsName, getenv("ILAMB_OUTPUTDIR") + "/www/", "")
    HtmlPlotsNames(nk) = HtmlPlotsName
 
 end do
@@ -4170,8 +4170,8 @@ do nv=0,nvar-1
       HtmlPlotsName = create_html_plots (VarName, Sources, KeyWords, StartYears, EndYears, ModelNames)
       HtmlPlotsName0= create_html_plots_all (VarName, Sources, KeyWords, StartYears, EndYears, ModelNames)
 
-      HtmlPlotsName = str_sub_str(HtmlPlotsName, "../OUTPUT/www/", "")
-      HtmlPlotsName0= str_sub_str(HtmlPlotsName0,"../OUTPUT/www/", "")
+      HtmlPlotsName = str_sub_str(HtmlPlotsName, getenv("ILAMB_OUTPUTDIR") + "/www/", "")
+      HtmlPlotsName0= str_sub_str(HtmlPlotsName0,getenv("ILAMB_OUTPUTDIR") + "/www/", "")
 
       do ns=0,nsur-1
          HtmlPlotsNames(nv,ns,0:dimsizes(HtmlPlotsName(0,:))-1) = HtmlPlotsName(ns,:)
@@ -4180,7 +4180,7 @@ do nv=0,nvar-1
    else
 
       HtmlPlotsName0 = create_html_plots_all (VarName, Sources, KeyWords, StartYears, EndYears, ModelNames)
-      HtmlPlotsName0 = str_sub_str(HtmlPlotsName0,"../OUTPUT/www/", "")
+      HtmlPlotsName0 = str_sub_str(HtmlPlotsName0,getenv("ILAMB_OUTPUTDIR") + "/www/", "")
       HtmlPlotsName(0,:) = HtmlPlotsName0
       HtmlPlotsNames(nv,0,0:dimsizes(HtmlPlotsName0)-1) = HtmlPlotsName0
 
@@ -4194,10 +4194,10 @@ do nv=0,nvar-1
       Value0         = new((/nsur, nmod/), float)
       WgtVar         = new((/nsur, nkey/), float)
 
-      HtmlTableNameSources = "../OUTPUT/www/table_" + str_lower(VarName) + "_" + Sources + ".html"
+      HtmlTableNameSources = getenv("ILAMB_OUTPUTDIR") + "/www/table_" + str_lower(VarName) + "_" + Sources + ".html"
       Value0 = create_html_table (HtmlTableNameSources, HtmlPlotsName, VarName, Sources, \
                         KeyWords, StartYears, EndYears, ModelNames, Refers, WgtVar, SubReg1, SubReg2, ncks)
-      HtmlTableNameSources = str_sub_str(HtmlTableNameSources, "../OUTPUT/www/", "")
+      HtmlTableNameSources = str_sub_str(HtmlTableNameSources, getenv("ILAMB_OUTPUTDIR") + "/www/", "")
 
       WgtVar!0="source"
       WgtVar!1="key"
@@ -4207,7 +4207,7 @@ do nv=0,nvar-1
 
       ; ++++++++++ read Weightings for Sources +++++++++++
 
-      TableFileName = DataDir + "/OUTPUT/" + str_lower(VarName) + "/overallscore/weights_" + str_lower(VarName) + "_Sources.txt"
+      TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarName) + "/overallscore/weights_" + str_lower(VarName) + "_Sources.txt"
 
       if (fileexists(TableFileName)) then
          print(TableFileName)
@@ -4231,7 +4231,7 @@ do nv=0,nvar-1
          Values(nv,nd) = dim_sum(Value0(:,nd)*wgts)/sum(wgts)
       end do
 
-      HtmlTableName = "../OUTPUT/www/table_" + str_lower(VarName) + ".html"
+      HtmlTableName = getenv("ILAMB_OUTPUTDIR") + "/www/table_" + str_lower(VarName) + ".html"
       create_table_sources (HtmlTableName, HtmlTableNameSources, VarName, Sources, Refers, wgts)
 
       ; +++++ Weightings here are based on numbers of observations ++++++
@@ -4255,7 +4255,7 @@ do nv=0,nvar-1
       delete(HtmlTableNameSources)
    else
       WgtVar         = new((/nkey/), float)
-      HtmlTableName = "../OUTPUT/www/table_" + str_lower(VarName) + ".html"
+      HtmlTableName = getenv("ILAMB_OUTPUTDIR") + "/www/table_" + str_lower(VarName) + ".html"
       Values(nv,0:nmod-1) = create_html_table (HtmlTableName, HtmlPlotsName, VarName, Sources, \
                             KeyWords, StartYears, EndYears, ModelNames, Refers, WgtVar, SubReg1, SubReg2, ncks)
 
@@ -4277,7 +4277,7 @@ do nv=0,nvar-1
       delete(WgtVar)
    end if
 
-   HtmlTableName = str_sub_str(HtmlTableName, "../OUTPUT/www/", "")
+   HtmlTableName = str_sub_str(HtmlTableName, getenv("ILAMB_OUTPUTDIR") + "/www/", "")
    HtmlTableNames(nv) = HtmlTableName
 
    delete(ncks)
@@ -4297,14 +4297,14 @@ end do
 
 WgtVars=WgtVars/sum(WgtVars)
 
-HtmlPageName = "../OUTPUT/www/ilamb-overall.html"
+HtmlPageName = getenv("ILAMB_OUTPUTDIR") + "/www/ilamb-overall.html"
 create_ilamb_overall (HtmlPageName)
 
-;HtmlPageName = "../OUTPUT/www/ilamb-summary.html"
-HtmlPageName = "../OUTPUT/www/ilamb.html"
+;HtmlPageName = getenv("ILAMB_OUTPUTDIR") + "/www/ilamb-summary.html"
+HtmlPageName = getenv("ILAMB_OUTPUTDIR") + "/www/ilamb.html"
 create_main_page (HtmlPageName, VarNames, HtmlTableNames, Values, nvpa, nchk, WgtVars)
 
-;HtmlTopName = "../OUTPUT/www/ilamb-top.html"
+;HtmlTopName = getenv("ILAMB_OUTPUTDIR") + "/www/ilamb-top.html"
 ;create_top_menu (HtmlTopName, VarNames, KeyWords0, HtmlPlotsNames0, HtmlTableNames)
 
 end

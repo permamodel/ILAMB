@@ -51,7 +51,7 @@ if (nvar.gt.1) then
    score=-999
    score@_FillValue = -999
    do nv=0,nvar-1
-      FileList1 = systemfunc ("ls " + ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)) + "/summary/summary" + \
+      FileList1 = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)) + "/summary/summary" + \
                              "_" + str_lower(VarNames(nv)) + "_" + "CMIP5.vs.*.txt")
      
       if (dimsizes(FileList1).eq.1) then
@@ -109,7 +109,7 @@ if (nvar.gt.1) then
 
 else
 
-   FileList1 = systemfunc ("ls " + ILAMBDir + "/OUTPUT/" + str_lower(VarNames) + "/summary/summary" + \
+   FileList1 = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/summary/summary" + \
                           "_" + str_lower(VarNames) + "_" + "CMIP5.vs.*.txt")
      
    if (dimsizes(FileList1).eq.1) then
@@ -189,7 +189,7 @@ header(0) = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 header(1) = "Variable Name: " + str_upper(Vars)
 header(2) = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-TableFileName = ILAMBDir + "/OUTPUT/summary/overallscore_GlobalVariables.txt"
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/overallscore_GlobalVariables.txt"
 print(TableFileName)
 
 write_table(TableFileName, "w", [/header/], "%s")
@@ -203,7 +203,7 @@ delete(header)
 
 ;wts=wts*100/sum(wts)
 
-TableFileName = ILAMBDir + "/OUTPUT/summary/weights_category.txt"
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/weights_category.txt"
 
 print(TableFileName)
 
@@ -220,7 +220,7 @@ delete(header)
 
 ;wgts=wgts*100/sum(wgts)
 
-TableFileName = ILAMBDir + "/OUTPUT/summary/weights_allvariables.txt"
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/weights_allvariables.txt"
 
 print(TableFileName)
 
@@ -251,7 +251,7 @@ delete(header)
 
 ;----------- Draw Overall Score for Global Variables -----------------------------------------
 
-PlotFileName = "../OUTPUT/summary/overallscore_GlobalVariables"
+PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/overallscore_GlobalVariables"
 print(PlotFileName)
 
 titles       = "Overallscore for Global Variables"
@@ -281,7 +281,7 @@ if (nvpa .ge.1) then
 
    do nvp =1, nvpa
 
-      TableFileName = ILAMBDir + "/OUTPUT/v2vscore/v2vscore_pair" + sprinti("%0.2i",nvp) + ".txt"
+      TableFileName = getenv("ILAMB_OUTPUTDIR") + "/v2vscore/v2vscore_pair" + sprinti("%0.2i",nvp) + ".txt"
       print(TableFileName)
 
       data_1d = asciiread(TableFileName,-1,"string")
@@ -346,7 +346,7 @@ if (nvpa .ge.1) then
    header(1) = "Overall Score: Variable to Variable"
    header(2) = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-   TableFileName = ILAMBDir + "/OUTPUT/summary/overallscore_Variable2Variable.txt"
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/overallscore_Variable2Variable.txt"
    print(TableFileName)
 
    write_table(TableFileName, "w", [/header/], "%s")
@@ -361,7 +361,7 @@ if (nvpa .ge.1) then
    ;wgtsVV=wgtsVV*100/sum(wgtsVV)
    Var2VarList = Var1NameList + " with " + Var2NameList
 
-   TableFileName = ILAMBDir + "/OUTPUT/summary/weights_allvar2var.txt"
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/weights_allvar2var.txt"
 
    print(TableFileName)
 
@@ -379,7 +379,7 @@ if (nvpa .ge.1) then
 
    ;----------- Draw Overall Score for Variable to Variable -----------------------------------------
 
-   PlotFileName = "../OUTPUT/summary/overallscore_Variable2Variable"
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/overallscore_Variable2Variable"
    print(PlotFileName)
 
    titles       = "Overallscore for Variable to Variable"
@@ -410,7 +410,7 @@ header(0) = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 header(1) = "Overall Score: All Diagnostics"
 header(2) = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-TableFileName = ILAMBDir + "/OUTPUT/summary/overallscore_all.txt"
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/overallscore_all.txt"
 print(TableFileName)
 
 write_table(TableFileName, "w", [/header/], "%s")
@@ -422,7 +422,7 @@ delete(header)
 
 ;----------- Draw Overall Score for All Diagnostics -----------------------------------------
 
-PlotFileName = "../OUTPUT/summary/overallscore_all"
+PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/summary/overallscore_all"
 print(PlotFileName)
 
 titles       = "Overallscore for All Diagnostics"

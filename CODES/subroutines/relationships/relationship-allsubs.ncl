@@ -307,7 +307,7 @@ tt_mod@YTitle = "Correlation Coefficient"
 
 delete(xxx)
 
-PlotFileName = DataDir + "/OUTPUT/relationships/correlation_line2line_CMIP5" \
+PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/relationships/correlation_line2line_CMIP5" \
              + "_" + str_lower(var1ID) + ".vs." + str_lower(var2ID) + "_" + sprinti("%0.4i",StartYear) \
              + "-" + sprinti("%0.4i",EndYear)
 
@@ -684,7 +684,7 @@ if (runIDS(nv).gt.0) then
   tt_mod(nv,:,:) = where (region.le.0, -999, tt_mod(nv,:,:))
   tt_mod@_FillValue = -999
 
-  PlotFileName = DataDir + "/OUTPUT/relationships/correlation_line2map_" + ModelNameList(nv) \
+  PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/relationships/correlation_line2map_" + ModelNameList(nv) \
                + "_" + str_lower(var1ID) + ".vs." + str_lower(var2ID) + "_" + sprinti("%0.4i",StartYear) \
                + "-" + sprinti("%0.4i",EndYear)
 
@@ -1028,7 +1028,7 @@ if (runIDS(nv).gt.0) then
   tt_mod(nv,:,:) = where (region.le.0, -999, tt_mod(nv,:,:))
   tt_mod@_FillValue = -999
 
-  PlotFileName = DataDir + "/OUTPUT/relationships/correlation_map2map_" + ModelNameList(nv) \
+  PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/relationships/correlation_map2map_" + ModelNameList(nv) \
                + "_" + str_lower(var1ID) + ".vs." + str_lower(var2ID) + "_" + sprinti("%0.4i",StartYear) \
                + "-" + sprinti("%0.4i",EndYear)
 
@@ -1345,13 +1345,13 @@ delete(at02)
 delete(tt01)
 delete(tt02)
 
-;FileNameOut1 = DataDir + "/OUTPUT/relationships/annualmean1_" \
+;FileNameOut1 = getenv("ILAMB_OUTPUTDIR") + "/relationships/annualmean1_" \
 ;               + "_" + str_lower(var1ID) + ".vs." + str_lower(var2ID) + "_" + sprinti("%0.4i",StartYear) \
 ;               + "-" + sprinti("%0.4i",EndYear) + ".dat"
 ;
 ;fbindirwrite(FileNameOut1, tt1_mod)
 ;
-;FileNameOut2 = DataDir + "/OUTPUT/relationships/annualmean2_" \
+;FileNameOut2 = getenv("ILAMB_OUTPUTDIR") + "/relationships/annualmean2_" \
 ;               + "_" + str_lower(var1ID) + ".vs." + str_lower(var2ID) + "_" + sprinti("%0.4i",StartYear) \
 ;               + "-" + sprinti("%0.4i",EndYear) + ".dat"
 ;
@@ -1464,7 +1464,7 @@ MaxLat   = max(yyy)*1.2
 do nv = 0, nmod
 if (runIDS(nv).gt.0) then
 
-  TableFileName = DataDir + "/OUTPUT/relationships/function_bar_" + ModelNameList(nv) \
+  TableFileName = getenv("ILAMB_OUTPUTDIR") + "/relationships/function_bar_" + ModelNameList(nv) \
                + "_" + str_lower(var1ID) + ".vs." + str_lower(var2ID) + "_" + sprinti("%0.4i",StartYear) \
                + "-" + sprinti("%0.4i",EndYear) + ".txt"
   
@@ -1477,7 +1477,7 @@ if (runIDS(nv).gt.0) then
   write_table(TableFileName,"a",[/Svar1,Svar2/], "%20s %30s")
   write_table(TableFileName,"a",[/xxx(nv,:), yyy(nv,:)/], "%20.2f %20.2f")
 
-  TableFileName = DataDir + "/OUTPUT/relationships/function_bar_numb_" + ModelNameList(nv) \
+  TableFileName = getenv("ILAMB_OUTPUTDIR") + "/relationships/function_bar_numb_" + ModelNameList(nv) \
                + "_" + str_lower(var1ID) + ".vs." + str_lower(var2ID) + "_" + sprinti("%0.4i",StartYear) \
                + "-" + sprinti("%0.4i",EndYear) + ".txt"
   
@@ -1490,7 +1490,7 @@ if (runIDS(nv).gt.0) then
   write_table(TableFileName,"a",[/Svar1,Svar2/], "%20s %30s")
   write_table(TableFileName,"a",[/numbs(nv,:), numbs(nv,:)/], "%20.2f %20.2f")
 
-  PlotFileName = DataDir + "/OUTPUT/relationships/function_bar_" + ModelNameList(nv) \
+  PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/relationships/function_bar_" + ModelNameList(nv) \
                + "_" + str_lower(var1ID) + ".vs." + str_lower(var2ID) + "_" + sprinti("%0.4i",StartYear) \
                + "-" + sprinti("%0.4i",EndYear)
 
@@ -1584,7 +1584,7 @@ do nvp =1, nvpa
   do nd = 0, nmod
      if (runIDs(nd).gt.0) then
 
-        TableFileName = DataDir + "/OUTPUT/relationships/function_bar_numb_" + ModelNameList(nd) \
+        TableFileName = getenv("ILAMB_OUTPUTDIR") + "/relationships/function_bar_numb_" + ModelNameList(nd) \
                       + "_" + str_lower(Var1) + ".vs." + str_lower(Var2) + "_" + sprinti("%0.4i",StartYear) \
                       + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -1595,7 +1595,7 @@ do nvp =1, nvpa
 
         delete(data1d)
 
-        TableFileName = DataDir + "/OUTPUT/relationships/" + funcs + "_" + ModelNameList(nd) \
+        TableFileName = getenv("ILAMB_OUTPUTDIR") + "/relationships/" + funcs + "_" + ModelNameList(nd) \
                + "_" + str_lower(Var1) + ".vs." + str_lower(Var2) + "_" + sprinti("%0.4i",StartYear) \
                + "-" + sprinti("%0.4i",EndYear) + ".txt"
         print(TableFileName)
@@ -1714,7 +1714,7 @@ do nvp =1, nvpa
  
   ;++++++++++++++++++++++++ Save Score for Variable to Variable +++++++++++++++++++++++++++
 
-  TableFileName = DataDir + "/OUTPUT/v2vscore/v2vscore_pair" + sprinti("%0.2i",nvp) + ".txt"
+  TableFileName = getenv("ILAMB_OUTPUTDIR") + "/v2vscore/v2vscore_pair" + sprinti("%0.2i",nvp) + ".txt"
 
   header = "V2V Score for " + str_upper(Var1) + " against " + str_upper(Var2)
   Svar1  = str_upper(Var1) + "(" + str_upper(Source1) + ")"
@@ -1727,7 +1727,7 @@ do nvp =1, nvpa
 
   ;++++++++++++++++++++++++ Draw Score for Variable to Variable +++++++++++++++++++++++++++
 
-  PlotFileName = DataDir + "/OUTPUT/v2vscore/v2vscore_pair" + sprinti("%0.2i",nvp)
+  PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/v2vscore/v2vscore_pair" + sprinti("%0.2i",nvp)
   titles       = "Var2Var Score for " + Var1 + " to " + Var2
 
   Draw_Score (PlotFileName, score, ModelNameList, titles)

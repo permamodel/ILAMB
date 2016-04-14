@@ -23,7 +23,7 @@ print("                                                                       ")
 print("--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->")
 print("Clean Up Requested Directories and Files")
 
-DataDir = ILAMBDir + "/OUTPUT/"
+DataDir = getenv("ILAMB_OUTPUTDIR") + "/"
 
 AllDirList = systemfunc ("ls " + DataDir)
 
@@ -72,10 +72,10 @@ if (str_lower(FileType).eq."all") then
 
    if (nvar.gt.1) then
       do nv=0,nvar-1
-         KeyWords = systemfunc ("ls " + ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)))
+         KeyWords = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)))
          if (dimsizes(KeyWords).gt.1) then
             do nk=0,dimsizes(KeyWords)-1
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)) + "/" + KeyWords(nk)
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)) + "/" + KeyWords(nk)
                system ("/bin/rm -f " + DataDirPlot + "/*.*")
                system ("/bin/rm -f " + DataDirPlot + "/plots/EPS/*." + PlotType)
                system ("/bin/rm -f " + DataDirPlot + "/plots/PNG/*.png")
@@ -83,7 +83,7 @@ if (str_lower(FileType).eq."all") then
             end do
          else
             if (.not.ismissing(KeyWords)) then
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)) + "/" + KeyWords
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)) + "/" + KeyWords
                system ("/bin/rm -f " + DataDirPlot + "/*.*")
                system ("/bin/rm -f " + DataDirPlot + "/plots/EPS/*." + PlotType)
                system ("/bin/rm -f " + DataDirPlot + "/plots/PNG/*.png")
@@ -94,10 +94,10 @@ if (str_lower(FileType).eq."all") then
       end do
    else
       if (.not.ismissing(VarNames)) then
-         KeyWords = systemfunc ("ls " + ILAMBDir + "/OUTPUT/" + str_lower(VarNames))
+         KeyWords = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames))
          if (dimsizes(KeyWords).gt.1) then
             do nk=0,dimsizes(KeyWords)-1
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames) + "/" + KeyWords(nk)
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/" + KeyWords(nk)
                system ("/bin/rm -f " + DataDirPlot + "/*.*")
                system ("/bin/rm -f " + DataDirPlot + "/plots/EPS/*." + PlotType)
                system ("/bin/rm -f " + DataDirPlot + "/plots/PNG/*.png")
@@ -105,7 +105,7 @@ if (str_lower(FileType).eq."all") then
             end do
          else
             if (.not.ismissing(KeyWords)) then
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames) + "/" + KeyWords
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/" + KeyWords
                system ("/bin/rm -f " + DataDirPlot + "/*.*")
                system ("/bin/rm -f " + DataDirPlot + "/plots/EPS/*." + PlotType)
                system ("/bin/rm -f " + DataDirPlot + "/plots/PNG/*.png")
@@ -116,39 +116,39 @@ if (str_lower(FileType).eq."all") then
       end if
    end if
 
-   DataDirPlot = ILAMBDir + "/OUTPUT/summary"
+   DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/summary"
    system ("/bin/rm -f " + DataDirPlot + "/*.*")
    system ("/bin/rm -f " + DataDirPlot + "/plots/EPS/*." + PlotType)
    system ("/bin/rm -f " + DataDirPlot + "/plots/PNG/*.png")
    system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
 
-   DataDirPlot = ILAMBDir + "/OUTPUT/www"
+   DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/www"
    system ("/bin/rm -f " + DataDirPlot + "/*.html")
 
    do nv=0,nfun-1
-      DataDirPlot = ILAMBDir + "/OUTPUT/relationships/" + str_lower(FuncList(nv))
+      DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/relationships/" + str_lower(FuncList(nv))
       system ("/bin/rm -f " + DataDirPlot + "/*.*")
       system ("/bin/rm -f " + DataDirPlot + "/plots/EPS/*." + PlotType)
       system ("/bin/rm -f " + DataDirPlot + "/plots/PNG/*.png")
       system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
    end do
-   DataDirPlot = ILAMBDir + "/OUTPUT/v2vscore"
+   DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/v2vscore"
    system ("/bin/rm -f " + DataDirPlot + "/*.*")
    system ("/bin/rm -f " + DataDirPlot + "/plots/EPS/*." + PlotType)
    system ("/bin/rm -f " + DataDirPlot + "/plots/PNG/*.png")
    system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
 
-   system ("/bin/rm -f " + ILAMBDir + "/OUTPUT/readme/readme*")
+   system ("/bin/rm -f " + getenv("ILAMB_OUTPUTDIR") + "/readme/readme*")
 
 end if
 
 if (any(str_lower(FileType).eq.(/"eps", "gif", "jpg", "pdf", "png", "plot", "plots", "ps"/))) then
    if (nvar.gt.1) then
       do nv=0,nvar-1
-         KeyWords = systemfunc ("ls " + ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)))
+         KeyWords = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)))
          if (dimsizes(KeyWords).gt.1) then
             do nk=0,dimsizes(KeyWords)-1
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)) + "/" + KeyWords(nk)
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)) + "/" + KeyWords(nk)
                system ("/bin/rm -f " + DataDirPlot + "/plots/" + str_upper(FileType) + "/*")
                if (any(str_lower(FileType).eq.(/"plot", "plots"/))) then
                   system ("/bin/rm -f " + DataDirPlot + "/*." + PlotType)
@@ -159,7 +159,7 @@ if (any(str_lower(FileType).eq.(/"eps", "gif", "jpg", "pdf", "png", "plot", "plo
             end do
          else
             if (.not.ismissing(KeyWords)) then
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)) + "/" + KeyWords
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)) + "/" + KeyWords
                system ("/bin/rm -f " + DataDirPlot + "/plots/" + str_upper(FileType) + "/*")
                if (any(str_lower(FileType).eq.(/"plot", "plots"/))) then
                   system ("/bin/rm -f " + DataDirPlot + "/*." + PlotType)
@@ -173,10 +173,10 @@ if (any(str_lower(FileType).eq.(/"eps", "gif", "jpg", "pdf", "png", "plot", "plo
       end do
    else
       if (.not.ismissing(VarNames)) then
-         KeyWords = systemfunc ("ls " + ILAMBDir + "/OUTPUT/" + str_lower(VarNames))
+         KeyWords = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames))
          if (dimsizes(KeyWords).gt.1) then
             do nk=0,dimsizes(KeyWords)-1
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames) + "/" + KeyWords(nk)
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/" + KeyWords(nk)
                system ("/bin/rm -f " + DataDirPlot + "/plots/" + str_upper(FileType) + "/*")
                if (any(str_lower(FileType).eq.(/"plot", "plots"/))) then
                   system ("/bin/rm -f " + DataDirPlot + "/*." + PlotType)
@@ -187,7 +187,7 @@ if (any(str_lower(FileType).eq.(/"eps", "gif", "jpg", "pdf", "png", "plot", "plo
             end do
          else
             if (.not.ismissing(KeyWords)) then
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames) + "/" + KeyWords
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/" + KeyWords
                system ("/bin/rm -f " + DataDirPlot + "/plots/" + str_upper(FileType) + "/*")
                if (any(str_lower(FileType).eq.(/"plot", "plots"/))) then
                   system ("/bin/rm -f " + DataDirPlot + "/*." + PlotType)
@@ -201,7 +201,7 @@ if (any(str_lower(FileType).eq.(/"eps", "gif", "jpg", "pdf", "png", "plot", "plo
       end if
    end if
 
-   DataDirPlot = ILAMBDir + "/OUTPUT/summary"
+   DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/summary"
    system ("/bin/rm -f " + DataDirPlot + "/plots/" + str_upper(FileType) + "/*")
    if (any(str_lower(FileType).eq.(/"plot", "plots"/))) then
       system ("/bin/rm -f " + DataDirPlot + "/*." + PlotType)
@@ -211,7 +211,7 @@ if (any(str_lower(FileType).eq.(/"eps", "gif", "jpg", "pdf", "png", "plot", "plo
    end if
 
    do nv=0,nfun-1
-      DataDirPlot = ILAMBDir + "/OUTPUT/relationships/" + str_lower(FuncList(nv))
+      DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/relationships/" + str_lower(FuncList(nv))
       system ("/bin/rm -f " + DataDirPlot + "/plots/" + str_upper(FileType) + "/*")
       if (any(str_lower(FileType).eq.(/"plot", "plots"/))) then
          system ("/bin/rm -f " + DataDirPlot + "/*." + PlotType)
@@ -220,7 +220,7 @@ if (any(str_lower(FileType).eq.(/"eps", "gif", "jpg", "pdf", "png", "plot", "plo
          system ("/bin/rm -f " + DataDirPlot + "/*." + str_lower(FileType))
       end if
    end do
-   DataDirPlot = ILAMBDir + "/OUTPUT/v2vscore"
+   DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/v2vscore"
    system ("/bin/rm -f " + DataDirPlot + "/plots/" + str_upper(FileType) + "/*")
    if (any(str_lower(FileType).eq.(/"plot", "plots"/))) then
       system ("/bin/rm -f " + DataDirPlot + "/*." + PlotType)
@@ -233,16 +233,16 @@ end if
 if (any(str_lower(FileType).eq.(/"txt", "text", "table", "tables"/))) then
    if (nvar.gt.1) then
       do nv=0,nvar-1
-         KeyWords = systemfunc ("ls " + ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)))
+         KeyWords = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)))
          if (dimsizes(KeyWords).gt.1) then
             do nk=0,dimsizes(KeyWords)-1
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)) + "/" + KeyWords(nk)
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)) + "/" + KeyWords(nk)
                system ("/bin/rm -f " + DataDirPlot + "/*.txt")
                system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
             end do
          else
             if (.not.ismissing(KeyWords)) then
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames(nv)) + "/" + KeyWords
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames(nv)) + "/" + KeyWords
                system ("/bin/rm -f " + DataDirPlot + "/*.txt")
                system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
             end if
@@ -251,16 +251,16 @@ if (any(str_lower(FileType).eq.(/"txt", "text", "table", "tables"/))) then
       end do
    else
       if (.not.ismissing(VarNames)) then
-         KeyWords = systemfunc ("ls " + ILAMBDir + "/OUTPUT/" + str_lower(VarNames))
+         KeyWords = systemfunc ("ls " + getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames))
          if (dimsizes(KeyWords).gt.1) then
             do nk=0,dimsizes(KeyWords)-1
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames) + "/" + KeyWords(nk)
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/" + KeyWords(nk)
                system ("/bin/rm -f " + DataDirPlot + "/*.txt")
                system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
             end do
          else
             if (.not.ismissing(KeyWords)) then
-               DataDirPlot = ILAMBDir + "/OUTPUT/" + str_lower(VarNames) + "/" + KeyWords
+               DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(VarNames) + "/" + KeyWords
                system ("/bin/rm -f " + DataDirPlot + "/*.txt")
                system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
             end if
@@ -269,26 +269,26 @@ if (any(str_lower(FileType).eq.(/"txt", "text", "table", "tables"/))) then
       end if
    end if
 
-   DataDirPlot = ILAMBDir + "/OUTPUT/summary"
+   DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/summary"
    system ("/bin/rm -f " + DataDirPlot + "/*.txt")
    system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
 
    do nv=0,nfun-1
-      DataDirPlot = ILAMBDir + "/OUTPUT/relationships/" + str_lower(FuncList(nv))
+      DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/relationships/" + str_lower(FuncList(nv))
       system ("/bin/rm -f " + DataDirPlot + "/*.txt")
       system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
    end do
-   DataDirPlot = ILAMBDir + "/OUTPUT/v2vscore"
+   DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/v2vscore"
    system ("/bin/rm -f " + DataDirPlot + "/*.txt")
    system ("/bin/rm -f " + DataDirPlot + "/tables/*.txt")
 end if
 
 if (str_lower(FileType).eq."readme") then
-   system ("/bin/rm -f " + ILAMBDir + "/OUTPUT/readme/readme*")
+   system ("/bin/rm -f " + getenv("ILAMB_OUTPUTDIR") + "/readme/readme*")
 end if
 
 if (any(str_lower(FileType).eq.(/"html", "www"/))) then
-   DataDirPlot = ILAMBDir + "/OUTPUT/www"
+   DataDirPlot = getenv("ILAMB_OUTPUTDIR") + "/www"
    system ("/bin/rm -f " + DataDirPlot + "/*.html")
 end if
 

@@ -334,7 +334,7 @@ if (.not.ismissing(avg(tt0))) then
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
                  + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -367,7 +367,7 @@ if (.not.ismissing(avg(tt0))) then
    do nv=0, nmod
    if (runIDS(nv).gt.0) then
 
-      PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
+      PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
                    + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                    + "-" + sprinti("%0.4i",EndYear)
 
@@ -955,7 +955,7 @@ ModelNameList(0)=Source
 ModelNameList(1:nmod)=ModelNames
 
 ; -------Save sub-region information for later use ------------------------
-TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/locations_" + str_lower(varID) \
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/locations_" + str_lower(varID) \
               + "_" + str_upper(Source) + ".txt"
 
 header1 = "Total sub-region analysis for " + str_lower(varID) + " from " + str_upper(Source)
@@ -1029,7 +1029,7 @@ region@NAME = ShortName
 region@Lons = clon
 region@Lats = clat
 
-PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/annualmean/map_biomes_" + str_upper(SubReg1)
+PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/annualmean/map_biomes_" + str_upper(SubReg1)
 
 titles       = "Biome Regions from " + str_upper(SubReg1)
 
@@ -1048,7 +1048,7 @@ lblabels = results@lblabels
 if (dimsizes(ind(.not.ismissing(anual(0,:)))).gt.1 .or. .not.ismissing(ind(.not.ismissing(anual(0,:))))) then
 
   do nv = 0, nmod
-     PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/annualmean_" + str_lower(varID) \
+     PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/annualmean_" + str_lower(varID) \
                   + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                   + "-" + sprinti("%0.4i",EndYear)
      print(PlotFileName)
@@ -1099,7 +1099,7 @@ do nv = 0, nmod
      tt1@_FillValue = -999
      tt2@_FillValue = -999
 
-     PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/biomes/check_subreg" + sprinti("%i",nr+1) \
+     PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/biomes/check_subreg" + sprinti("%i",nr+1) \
                   + "_" + str_lower(varID) + "_" + ModelName0 + ".vs." + str_upper(Source) \
                   + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
@@ -1410,7 +1410,7 @@ if (SiteID@NAME.eq."SITES") then
 
          ; ++++++++++ Create a txt file and save results +++++++++++
 
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
                        + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -1493,7 +1493,7 @@ if (SiteID@NAME.eq."SITES") then
          do nv = 0, nmod
             if (runIDS(nv).gt.0) then
 
-               PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
+               PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
                             + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                             + "-" + sprinti("%0.4i",EndYear)
 
@@ -1616,7 +1616,7 @@ if (SiteID@NAME.eq."SITES") then
 
          ; ++++++++++ Create a txt file and save results +++++++++++
 
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
                        + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -1662,7 +1662,7 @@ if (SiteID@NAME.eq."SITES") then
 
                tt_mod@_FillValue = -999
 
-               PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
+               PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
                             + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                             + "-" + sprinti("%0.4i",EndYear)
 
@@ -1913,7 +1913,7 @@ else
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
                  + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -1970,7 +1970,7 @@ else
          tt1_mod@_FillValue = -999
          tt2_mod@_FillValue = -999
 
-         PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
+         PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/annualmean/annualmean_" + str_lower(varID) \
                       + "_" + ModelName0 + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                       + "-" + sprinti("%0.4i",EndYear)
 
@@ -2273,7 +2273,7 @@ if (.not.ismissing(avg(tt0))) then
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
                  + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                  + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -2306,7 +2306,7 @@ if (.not.ismissing(avg(tt0))) then
    do nv=1, nmod
    if (runIDS(nv).gt.0) then
 
-      PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
+      PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
                    + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                    + "-" + sprinti("%0.4i",EndYear)
 
@@ -2617,7 +2617,7 @@ if (SiteID@NAME.eq."SITES") then
 
          ; ++++++++++ Create a txt file and save results +++++++++++
 
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
                        + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -2701,7 +2701,7 @@ if (SiteID@NAME.eq."SITES") then
          do nv = 1, nmod
             if (runIDS(nv).gt.0) then
 
-               PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
+               PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
                             + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                             + "-" + sprinti("%0.4i",EndYear)
 
@@ -2828,7 +2828,7 @@ if (SiteID@NAME.eq."SITES") then
 
          ; ++++++++++ Create a txt file and save results +++++++++++
 
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/bias/bias_" + str_lower(varID)    \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/bias/bias_" + str_lower(varID)    \
                        + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                        + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -2872,7 +2872,7 @@ if (SiteID@NAME.eq."SITES") then
          do nv = 1, nmod
             if (runIDS(nv).gt.0) then
 
-               PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/bias/bias_" + str_lower(varID)  \
+               PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/bias/bias_" + str_lower(varID)  \
                        + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                        + "-" + sprinti("%0.4i",EndYear)
 
@@ -2969,7 +2969,7 @@ else
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/bias/bias_" + str_lower(varID)    \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/bias/bias_" + str_lower(varID)    \
                  + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                  + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -3004,7 +3004,7 @@ else
 
     ; ++++++++++ Draw global distribution of Bias +++++++++++
 
-    PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
+    PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/bias/bias_" + str_lower(varID) \
                  + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                  + "-" + sprinti("%0.4i",EndYear)
 
@@ -3335,7 +3335,7 @@ if (.not.ismissing(avg(tt0))) then
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
                  + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear)  \
                  + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -3368,7 +3368,7 @@ if (.not.ismissing(avg(tt0))) then
    do nv = 1, nmod
    if (runIDS(nv).gt.0) then
 
-      PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
+      PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
                    + str_lower(varID) + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" \
                    + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
@@ -3388,7 +3388,7 @@ if (.not.ismissing(avg(tt0))) then
 
    ;----------- Draw Global Mean Bias Score ----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
                 + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear)  \
                 + "-" + sprinti("%0.4i",EndYear)
 
@@ -3833,7 +3833,7 @@ if (SiteID@NAME.eq."SITES") then
          tt_mod&lat=cLats
          tt_mod&mod=fspan(1,int2flt(nmod+1),nmod+1)
 
-         PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" + str_lower(varID) \
+         PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" + str_lower(varID) \
                       + "_cmip5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                       + "-" + sprinti("%0.4i",EndYear)
 
@@ -4019,7 +4019,7 @@ if (SiteID@NAME.eq."SITES") then
 
          ; ++++++++++ Create a txt file and save results +++++++++++
 
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
                        + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear)  \
                        + "-" + sprinti("%0.4i",EndYear) + ".txt"
    
@@ -4063,7 +4063,7 @@ if (SiteID@NAME.eq."SITES") then
         do nv = 0, nmod
            if (runIDS(nv).gt.0) then
  
-              PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
+              PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
                            + str_lower(varID) + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" \
                            + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
  
@@ -4078,7 +4078,7 @@ if (SiteID@NAME.eq."SITES") then
 
         ;----------- Draw Global Mean Global Bias Score -----------------------------------------
 
-        PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
+        PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
                      + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear)  \
                      + "-" + sprinti("%0.4i",EndYear)
  
@@ -4198,7 +4198,7 @@ else
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
                  + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear)  \
                  + "-" + sprinti("%0.4i",EndYear) + ".txt"
    
@@ -4233,7 +4233,7 @@ else
 
     ;----------- Draw Global Distribution of Global Bias Score -----------------------------------------
 
-    ;PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
+    ;PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
     ;             + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" \
     ;             + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
     ;
@@ -4244,7 +4244,7 @@ else
 
     ;----------- Draw Global Mean Global Bias Score -----------------------------------------
 
-    PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
+    PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/globalbiasscore/globalbiasscore_" \
                  + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear)  \
                  + "-" + sprinti("%0.4i",EndYear)
  
@@ -4579,7 +4579,7 @@ end do
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/interannualscore/interannualscore_" \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/interannualscore/interannualscore_" \
                 + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                 + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -4607,7 +4607,7 @@ end do
    do nv = 1, nmod
    if (runIDS(nv).gt.0) then
 
-      PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/interannualscore/interannualscore_" \
+      PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/interannualscore/interannualscore_" \
                    + str_lower(varID) + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" \
                    + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
@@ -4622,7 +4622,7 @@ end do
 
    ;----------- Draw Global Mean Interannual Variability Score -----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/interannualscore/interannualscore_" \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/interannualscore/interannualscore_" \
                 + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                 + "-" + sprinti("%0.4i",EndYear)
 
@@ -4894,7 +4894,7 @@ if (nsit0.gt.1 .or. .not.ismissing(i51)) then
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/interannualscore/interannualscore_" \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/interannualscore/interannualscore_" \
                  + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                  + "-" + sprinti("%0.4i",EndYear) + ".txt"
    
@@ -4939,7 +4939,7 @@ if (nsit0.gt.1 .or. .not.ismissing(i51)) then
    do nv = 1, nmod
       if (runIDS(nv).gt.0) then
 
-         PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/interannualscore/interannualscore_" \
+         PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/interannualscore/interannualscore_" \
                       + str_lower(varID) + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" \
                       + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
@@ -4954,7 +4954,7 @@ if (nsit0.gt.1 .or. .not.ismissing(i51)) then
 
    ;----------- Draw Global Mean Interannual Variability Score -----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/interannualscore/interannualscore_" \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/interannualscore/interannualscore_" \
                 + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                 + "-" + sprinti("%0.4i",EndYear)
 
@@ -5063,7 +5063,7 @@ else
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/interannualscore/interannualscore_" \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/interannualscore/interannualscore_" \
                  + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                  + "-" + sprinti("%0.4i",EndYear) + ".txt"
    
@@ -5098,7 +5098,7 @@ else
 
    ;----------- Draw Global Distribution of Interannual Variability Score -----------------------------------------
 
-   ;PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/interannualscore/interannualscore_" + str_lower(varID) \
+   ;PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/interannualscore/interannualscore_" + str_lower(varID) \
    ;             + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
    ;             + "-" + sprinti("%0.4i",EndYear)
    ; 
@@ -5110,7 +5110,7 @@ else
 
    ;----------- Draw Global Mean Interannual Variability Score -----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/interannualscore/interannualscore_" \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/interannualscore/interannualscore_" \
                 + str_lower(varID) + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                 + "-" + sprinti("%0.4i",EndYear)
 
@@ -5217,7 +5217,7 @@ if (dimsizes(k50).gt.1 .or. .not.ismissing(k50)) then
    do nk =0, nkey-1
 
       ; +++++++ read metric score from saved files +++++++++++
-      FileName  = DataDir + "/OUTPUT/" + str_lower(varID) + "/" + ShortKeyNames(nk) + "/" + ShortKeyNames(nk) + "_" + str_lower(varID) \
+      FileName  = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/" + ShortKeyNames(nk) + "/" + ShortKeyNames(nk) + "_" + str_lower(varID) \
                 + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
       if (fileexists(FileName)) then
@@ -5282,7 +5282,7 @@ if (ijk.gt.0) then
 
    ; ++++++++++ Create a txt file and save OverAll Score +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/overallscore/overallscore_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/overallscore/overallscore_" + str_lower(varID) \
                  + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
    print(TableFileName)
@@ -5300,7 +5300,7 @@ if (ijk.gt.0) then
 
    ;wgts(0:ijk-1) = wgts(0:ijk-1)*100/sum(wgts(0:ijk-1))
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/overallscore/weights_" + str_lower(varID) + "_CMIP5.vs." \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/overallscore/weights_" + str_lower(varID) + "_CMIP5.vs." \
                  + str_upper(Source) + ".txt"
 
    print(TableFileName)
@@ -5315,7 +5315,7 @@ if (ijk.gt.0) then
 
    ;----------- Draw Overall Score -----------------------------------------
 
-   PlotFileName = "../OUTPUT/" + str_lower(varID) + "/overallscore/overallscore_" + str_lower(varID) \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/overallscore/overallscore_" + str_lower(varID) \
                 + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
    titles       = "Overallscore for " + str_upper(varID) + " against " + str_upper(Source) + ", " + \
@@ -5732,7 +5732,7 @@ end do
    ; ++++++++++ Create a txt file and save results +++++++++++
 
    ; ++++++++++ Save global mean Phase Difference +++++++++++
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phase/phase_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phase/phase_" + str_lower(varID) \
                  + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -5748,7 +5748,7 @@ end do
    ;print(asciiread(TableFileName,-1,"string"))
 
    ; ++++++++++ Save global mean Phase Scores +++++++++++
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
                  + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -5785,7 +5785,7 @@ end do
    if (runIDS(nv).gt.0) then
 
       ; ++++++++++ Draw global distribution of Phase Difference +++++++++++
-      PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phase/phase_" + str_lower(varID)  \ 
+      PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phase/phase_" + str_lower(varID)  \ 
                    + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \ 
                    + "-" + sprinti("%0.4i",EndYear)
 
@@ -5811,7 +5811,7 @@ end do
 
 
       ; ++++++++++ Draw global distribution of Phase Scores +++++++++++
-      PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID)  \ 
+      PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID)  \ 
                    + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \ 
                    + "-" + sprinti("%0.4i",EndYear)
 
@@ -5833,7 +5833,7 @@ end do
 
    ;----------- Draw Global Mean Seasonal Cycle Score -----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
                 + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
    titles       = "Seasonal Cycle Score for " + str_lower(varID) + " against " + str_upper(Source) + ", " + \
@@ -6261,7 +6261,7 @@ if (SiteID@NAME.eq."SITES") then
          ; ++++++++++ Create a txt file and save results +++++++++++
 
          ; ++++++++++ Save global mean Phase Difference +++++++++++
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phase/phase_" + str_lower(varID) \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phase/phase_" + str_lower(varID) \
                        + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -6277,7 +6277,7 @@ if (SiteID@NAME.eq."SITES") then
          ;print(asciiread(TableFileName,-1,"string"))
 
          ; ++++++++++ Save global mean Phase Scores +++++++++++
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
                        + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -6356,7 +6356,7 @@ if (SiteID@NAME.eq."SITES") then
          tt2_mod&mod=nmodels
 
          ; ++++++++++ Draw global distribution of Phase Difference +++++++++++
-         PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phase/phase_" + str_lower(varID)  \
+         PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phase/phase_" + str_lower(varID)  \
                       + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                       + "-" + sprinti("%0.4i",EndYear)
 
@@ -6378,7 +6378,7 @@ if (SiteID@NAME.eq."SITES") then
                            nmodels, cLats)
 
          ; ++++++++++ Draw global distribution of Seasonal Cycle Scores +++++++++++
-         PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID)  \
+         PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID)  \
                       + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                       + "-" + sprinti("%0.4i",EndYear)
 
@@ -6399,7 +6399,7 @@ if (SiteID@NAME.eq."SITES") then
 
          ;----------- Draw Global Mean Seasonal Cycle Score -----------------------------------------
 
-         ;PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
+         ;PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
          ;             + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
          ;
          ;titles       = "Seasonal Cycle Score for " + str_upper(varID) + " against " + str_upper(Source) + ", " + \
@@ -6665,7 +6665,7 @@ if (SiteID@NAME.eq."SITES") then
          ; ++++++++++ Create a txt file and save results +++++++++++
       
          ; ++++++++++ Save global mean Phase Difference +++++++++++
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phase/phase_" + str_lower(varID) \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phase/phase_" + str_lower(varID) \
                        + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
       
@@ -6681,7 +6681,7 @@ if (SiteID@NAME.eq."SITES") then
          ;print(asciiread(TableFileName,-1,"string"))
       
          ; ++++++++++ Save global mean Phase Scores +++++++++++
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
                        + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
       
@@ -6708,7 +6708,7 @@ if (SiteID@NAME.eq."SITES") then
          if (runIDS(nv).gt.0) then
       
             ; ++++++++++ Draw global distribution of Phase Difference +++++++++++
-            PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phase/phase_" + str_lower(varID)  \ 
+            PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phase/phase_" + str_lower(varID)  \ 
                          + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \ 
                          + "-" + sprinti("%0.4i",EndYear)
       
@@ -6735,7 +6735,7 @@ if (SiteID@NAME.eq."SITES") then
                       MinLon, MaxLon, MinLat, MaxLat, SiteID)
       
             ; ++++++++++ Draw global distribution of Seasonal Cycle Scores +++++++++++
-            PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID)  \ 
+            PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID)  \ 
                          + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \ 
                          + "-" + sprinti("%0.4i",EndYear)
       
@@ -6757,7 +6757,7 @@ if (SiteID@NAME.eq."SITES") then
       
          ;----------- Draw Global Mean Seasonal Cycle Score -----------------------------------------
       
-         PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
+         PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
                       + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
       
          titles       = "Seasonal Cycle Score for " + str_upper(varID) + " against " + str_upper(Source) + ", " + \
@@ -6947,7 +6947,7 @@ else
    ; ++++++++++ Create a txt file and save results +++++++++++
 
    ; ++++++++++ Save global mean Phase Difference +++++++++++
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phase/phase_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phase/phase_" + str_lower(varID) \
                  + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -6963,7 +6963,7 @@ else
    ;print(asciiread(TableFileName,-1,"string"))
 
    ; ++++++++++ Save global mean Phase Scores +++++++++++
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
                  + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -6993,7 +6993,7 @@ else
    ; ++++++++++ Draw global distribution of Phase Difference and Phase Score +++++++++++
 
    ; ++++++++++ Draw global distribution of Phase Difference +++++++++++
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phase/phase_" + str_lower(varID)  \ 
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phase/phase_" + str_lower(varID)  \ 
                 + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \ 
                 + "-" + sprinti("%0.4i",EndYear)
 
@@ -7013,7 +7013,7 @@ else
 
    ;----------- Draw Global Mean Seasonal Cycle Score -----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/phasescore/phasescore_" + str_lower(varID) \
                 + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
    titles       = "Seasonal Cycle Score for " + str_upper(varID) + " against " + str_upper(Source) + ", " + \
@@ -7329,7 +7329,7 @@ end do
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
                  + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -7357,7 +7357,7 @@ end do
    do nv = 1, nmod
    if (runIDS(nv).gt.0) then
 
-      PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
+      PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
                    + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                    + "-" + sprinti("%0.4i",EndYear)
 
@@ -7679,7 +7679,7 @@ if (nsit.gt.1) then
 
          ; ++++++++++ Create a txt file and save results +++++++++++
 
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) \
                        + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -7745,7 +7745,7 @@ if (nsit.gt.1) then
 
          ; ++++++++++ Draw global distribution of Annual Mean +++++++++++
 
-         PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) \
+         PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) \
                       + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                       + "-" + sprinti("%0.4i",EndYear)
 
@@ -7921,7 +7921,7 @@ if (nsit.gt.1) then
       
          ; ++++++++++ Create a txt file and save results +++++++++++
       
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
                        + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
       
@@ -7942,7 +7942,7 @@ if (nsit.gt.1) then
       
             if (runIDS(nv).gt.0) then
       
-               PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
+               PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
                             + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                             + "-" + sprinti("%0.4i",EndYear)
       
@@ -8036,7 +8036,7 @@ else
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) + "_" \
                  + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -8071,7 +8071,7 @@ else
 
    ; ++++++++++ Draw global distribution of RMSE +++++++++++
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmse/rmse_" + str_lower(varID) \
                 + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                 + "-" + sprinti("%0.4i",EndYear)
 
@@ -8441,7 +8441,7 @@ end do
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) + "_" \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) + "_" \
                  + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -8469,7 +8469,7 @@ end do
    do nv = 1, nmod
    if (runIDS(nv).gt.0) then
 
-      PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" \
+      PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" \
                    + str_lower(varID) + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" \
                    + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
 
@@ -8484,7 +8484,7 @@ end do
 
    ;----------- Draw Global Mean RmseScore -----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
                 + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                 + sprinti("%0.4i",EndYear)
 
@@ -8872,7 +8872,7 @@ if (SiteID@NAME.eq."SITES") then
 
          ; ++++++++++ Create a txt file and save results +++++++++++
 
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
                        + "_" + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -8938,7 +8938,7 @@ if (SiteID@NAME.eq."SITES") then
          tt_mod&lat=cLats
          tt_mod&lat@units="degrees_north"
 
-         PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
+         PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
                       + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) \
                       + "-" + sprinti("%0.4i",EndYear)
 
@@ -9166,7 +9166,7 @@ if (SiteID@NAME.eq."SITES") then
       
          ; ++++++++++ Create a txt file and save results +++++++++++
       
-         TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) + "_" \
+         TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) + "_" \
                        + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                        + sprinti("%0.4i",EndYear) + ".txt"
       
@@ -9214,7 +9214,7 @@ if (SiteID@NAME.eq."SITES") then
       
                tt_mod@_FillValue = -999
       
-               PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" \
+               PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" \
                             + str_lower(varID) + "_" + ModelNameList(nv) + ".vs." + str_upper(Source) + "_" \
                             + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear)
       
@@ -9229,7 +9229,7 @@ if (SiteID@NAME.eq."SITES") then
       
          ;----------- Draw Global Mean Rmse Score -----------------------------------------
       
-         PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
+         PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
                       + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                       + sprinti("%0.4i",EndYear)
       
@@ -9332,7 +9332,7 @@ else
 
    ; ++++++++++ Create a txt file and save results +++++++++++
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) + "_" \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) + "_" \
                  + "CMIP5" + ".vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -9367,7 +9367,7 @@ else
 
    ;----------- Draw Global Mean Rmse Score -----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/rmsescore/rmsescore_" + str_lower(varID) \
                 + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                 + sprinti("%0.4i",EndYear)
 
@@ -9420,7 +9420,7 @@ if (nsur.gt.1) then
 
    do ns=0,nsur-1
       do nk=0,nkey-1
-         FileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/" + str_lower(KeyWords(nk)) \
+         FileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/" + str_lower(KeyWords(nk)) \
                   + "/" + str_lower(KeyWords(nk)) + "_" + str_lower(varID) + "_" + "CMIP5.vs." + str_upper(Sources(ns)) \
                   + "_" + sprinti("%0.4i",StartYears(ns)) + "-" + sprinti("%0.4i",EndYears(ns)) + ".txt"
 
@@ -9481,7 +9481,7 @@ if (nsur.gt.1) then
 
       header=new((/6/), string)
 
-      TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/summary/summary_" + str_lower(varID) + "_" + "CMIP5.vs." + \
+      TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/summary/summary_" + str_lower(varID) + "_" + "CMIP5.vs." + \
                       str_upper(Sources(ns)) + "_" + sprinti("%0.4i",StartYears(ns)) + "-" + sprinti("%0.4i",EndYears(ns)) + ".txt"
 
       print(TableFileName)
@@ -9606,7 +9606,7 @@ else
    VarUnit  = UnitInfo@FinalTable
 
    do nk=0,nkey-1
-      FileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/" + str_lower(KeyWords(nk)) \ 
+      FileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/" + str_lower(KeyWords(nk)) \ 
                + "/" + str_lower(KeyWords(nk)) + "_" + str_lower(varID) + "_" + "CMIP5.vs." + str_upper(Sources)  \
                + "_" + sprinti("%0.4i",StartYears) + "-" + sprinti("%0.4i",EndYears) + ".txt"
 
@@ -9648,7 +9648,7 @@ scores@_FillValue=-999
 
 header=new((/6/), string)
 
-TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/summary/summary_" + str_lower(varID) \
+TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/summary/summary_" + str_lower(varID) \
               + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
 print(TableFileName)
@@ -9729,7 +9729,7 @@ print(asciiread(TableFileName,-1,"string"))
 
 if (nsur.gt.1) then
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/overallscore/overallscore_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/overallscore/overallscore_" + str_lower(varID) \
                  + "_" + "CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" + sprinti("%0.4i",EndYear) + ".txt"
 
    header = "Overall Score for " + str_upper(varID) + " against " + str_upper(Source)
@@ -9749,7 +9749,7 @@ if (nsur.gt.1) then
 
    ;wt=wt*100/sum(wt)
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/overallscore/weights_" + str_lower(varID) + "_Sources.txt"
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/overallscore/weights_" + str_lower(varID) + "_Sources.txt"
 
    print(TableFileName)
 
@@ -9763,7 +9763,7 @@ if (nsur.gt.1) then
 
    ;----------- Draw Overall Score for individual variable -----------------------------------------
 
-   PlotFileName = "../OUTPUT/" + str_lower(varID) + "/overallscore/overallscore_" + str_lower(varID) \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/overallscore/overallscore_" + str_lower(varID) \
                 + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                 + sprinti("%0.4i",EndYear)
 
@@ -10028,7 +10028,7 @@ end do
    ratio@_FillValue = -999
    score@_FillValue = -999
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/taylorscore/taylorscore_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/taylorscore/taylorscore_" + str_lower(varID) \
                  + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -10048,7 +10048,7 @@ end do
 
    ;----------- Draw Spatia Taylor Score -----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/taylorscore/taylorscore_" + str_lower(varID) \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/taylorscore/taylorscore_" + str_lower(varID) \
                 + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                 + sprinti("%0.4i",EndYear)
 
@@ -10259,7 +10259,7 @@ if (nsit0.gt.2) then
    ratio@_FillValue = -999
    score@_FillValue = -999
 
-   TableFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/taylorscore/taylorscore_" + str_lower(varID) \
+   TableFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/taylorscore/taylorscore_" + str_lower(varID) \
                  + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                  + sprinti("%0.4i",EndYear) + ".txt"
 
@@ -10275,7 +10275,7 @@ if (nsit0.gt.2) then
 
    ;----------- Draw Spatia TaylorScore -----------------------------------------
 
-   PlotFileName = DataDir + "/OUTPUT/" + str_lower(varID) + "/taylorscore/taylorscore_" + str_lower(varID) \
+   PlotFileName = getenv("ILAMB_OUTPUTDIR") + "/" + str_lower(varID) + "/taylorscore/taylorscore_" + str_lower(varID) \
                 + "_CMIP5.vs." + str_upper(Source) + "_" + sprinti("%0.4i",StartYear) + "-" \
                 + sprinti("%0.4i",EndYear)
 
