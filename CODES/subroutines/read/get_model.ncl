@@ -194,11 +194,12 @@ if (NumRun(nv).gt.0) then
       if (dates(0,0).gt.StartYear) then
          nt1 = 0
       else
-         if (modelID.eq."Lyr") then
-            nt1 = ind (dates(:,0).eq.StartYear)
-         else
-            nt1 = ind (dates(:,0).eq.StartYear .and. dates(:,1).eq.1)
-         end if
+        if (modelID.eq."Lyr") then
+          nt1 = ind (dates(:,0).eq.StartYear)
+        else
+          nt1 = ind (dates(:,0).eq.StartYear .and. dates(:,1).eq.1)
+          nt1 := nt1(0)  ; take the first date in January
+        end if
       end if
 
       if (dates(ntots,0).lt.EndYear) then
