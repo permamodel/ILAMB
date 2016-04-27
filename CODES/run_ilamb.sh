@@ -41,4 +41,8 @@ echo "ILAMB finish:" `date`
 tarfile=ILAMB-$PBS_O_LOGNAME-$job_id.tar.gz
 tar zcf $tarfile -C $ILAMB_ROOT OUTPUT
 mv $tarfile $PBS_O_WORKDIR
-rm $ILAMB_ROOT/OUTPUT/ILAMB.stdout
+
+# Cleanup.
+if [ -e $ILAMB_ROOT/OUTPUT/ILAMB.stdout ]; then
+    rm $ILAMB_ROOT/OUTPUT/ILAMB.stdout
+fi
