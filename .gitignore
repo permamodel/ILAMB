@@ -1,2 +1,6 @@
 # Emacs backups
 *~
+
+# ILAMB temporary files
+temp.data
+tempfiles
