@@ -50,9 +50,11 @@ tar zcf $tarfile -C $ILAMB_ROOT OUTPUT
 mv $tarfile $PBS_O_WORKDIR
 
 # Cleanup.
-to_remove="$stdout_file $stderr_file"
-for file in $to_remove; do
-    if [ -e $file ]; then
-	rm $file
+to_remove="$stdout_file $stderr_file \
+    $ILAMB_CODESDIR/temp.data \
+    $ILAMB_CODESDIR/tempfiles"
+for item in $to_remove; do
+    if [ -e $item ]; then
+	rm -rf $item
     fi
 done
