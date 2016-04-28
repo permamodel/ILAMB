@@ -29,12 +29,14 @@ tools_dir=/home/csdms/tools
 export NCARG_ROOT=$tools_dir/ncl
 PATH=$NCARG_ROOT/bin:$tools_dir/ImageMagick/bin:$PATH
 job_id=`basename $PBS_JOBID .beach.colorado.edu`
+stdout_file=$ILAMB_ROOT/OUTPUT/ILAMB.stdout
+stderr_file=$ILAMB_ROOT/OUTPUT/ILAMB.stderr
 
 # Run ILAMB.
 cd $ILAMB_ROOT ; echo $ILAMB_ROOT
 cd CODES
 echo "ILAMB start:" `date`
-ncl -n main_ncl_code.ncl > $ILAMB_ROOT/OUTPUT/ILAMB.stdout
+ncl -n main_ncl_code.ncl 1> $stdout_file 2> $stderr_file
 echo "ILAMB finish:" `date`
 
 # Package results.
@@ -43,6 +45,9 @@ tar zcf $tarfile -C $ILAMB_ROOT OUTPUT
 mv $tarfile $PBS_O_WORKDIR
 
 # Cleanup.
-if [ -e $ILAMB_ROOT/OUTPUT/ILAMB.stdout ]; then
-    rm $ILAMB_ROOT/OUTPUT/ILAMB.stdout
-fi
+to_remove="$stdout_file $stderr_file"
+for file in $to_remove; do
+    if [ -e $file ]; then
+	rm $file
+    fi
+done
