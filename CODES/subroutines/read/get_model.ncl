@@ -197,7 +197,7 @@ if (NumRun(nv).gt.0) then
         if (modelID.eq."Lyr") then
           nt1 = ind (dates(:,0).eq.StartYear)
         else
-          nt1 = ind (dates(:,0).eq.StartYear .and. dates(:,1).eq.1)
+          nt1 := ind (dates(:,0).eq.StartYear .and. dates(:,1).eq.1)
           nt1 := nt1(0)  ; take the first date in January
         end if
       end if
