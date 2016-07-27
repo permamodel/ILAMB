@@ -4,3 +4,7 @@
 # ILAMB temporary files
 temp.data
 tempfiles
+
+# Run output file
+stderr
+stdout
