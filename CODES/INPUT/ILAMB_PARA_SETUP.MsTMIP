@@ -5,24 +5,22 @@ BIOME-BGC     |      1     |    1   |  historical  |
 CLASS-CTEM-N  |      1     |    1   |  historical  |
 CLM4          |      1     |    1   |  historical  |
 CLM4VIC       |      1     |    1   |  historical  |
-DLEM          |      0     |    1   |  historical  |
+DLEM          |      1     |    1   |  historical  |
 GTEC          |      1     |    1   |  historical  |
 ISAM          |      1     |    1   |  historical  |
 LPJ-wsl       |      1     |    1   |  historical  |
-MPI-ESM-LR    |      0     |    1   |  historical  |
-NorESM1-ME    |      0     |    1   |  historical  |
 ORCHIDEE-LSCE |      0     |    1   |  historical  |
 SiB3          |      0     |    1   |  historical  |
 SiBCASA       |      0     |    1   |  historical  |
 TEM6          |      0     |    1   |  historical  |
 TRIPLEX-GHG   |      0     |    1   |  historical  |
-VEGAS2.1      |      1     |    1   |  historical  |
+VEGAS2.1      |      0     |    1   |  historical  |
 VISIT         |      0     |    1   |  historical  |
 
 2. List Variables and  Diagnostic packages (KeyWords) here
           |  Benchmark  |  Period | Regional Analysis |   Global Patterns  |             Scoring Metrics                    |
 Variables |    Sources  |Start-End| Multi |   Single  |AnnualMean|Bias|RMSE|GlobalBias|RMSE|Phase|Taylor|Interannual|OverAll|
-gpp       |     All     |1982-2005|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+gpp       |     All     |1982-2010|  GFED |   Global  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
 
 3. List pair of Variables for their relationship
 Variables |    Source   |albedo|biomass|burntArea|co2|et|gpp|le|nee|pr|reco|rlds|rlns|rlus|rns|rsds|rsns|rsus|sh|soilc|soilm|sst|tas|twsa|twsa_per|
