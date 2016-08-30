@@ -61,3 +61,4 @@ rsds (Surface Donwward SW Radiation),      CERES (CERES [Kato et al. 2013]),    
 rsds (Surface Donwward SW Radiation),      FLUXNET (Fluxnet-Sites [Lasslop et al. 2010]),                     4,               3,           2,      Yes,    Yes,       Yes,          Yes,          Yes
 rsds (Surface Donwward SW Radiation),      GEWEX.SRB (GEWEX-SRB [Stackhouse et al. 2011]),                    4,               5,           2,      Yes,    Yes,       Yes,          Yes,          Yes
 rsds (Surface Donwward SW Radiation),      WRMC.BSRN (WRMC-BSRN [Kong-Langl et al. 2013]),                    4,               3,           2,      Yes,    Yes,       Yes,          Yes,          Yes
+gpp (Gross Primary Production),            FOONET (PBS [PBS team 2016]),                                                      3,               3,           5,      Yes,    Yes,       Yes,          Yes,          Yes

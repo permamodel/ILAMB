@@ -368,7 +368,8 @@ if (str_lower(KeyWord).eq."annualmean") then
       ;lblabels = (/"<0.05","0.05","0.1","0.2","0.5","1","2","5","10","15",">=20"/)
       cnlevels = (/0.0,0.02,0.06,0.1,0.3,0.5,1.5,2.5,7.5,12.5,17.5,22.5/)
       lblabels = (/"<0.0","0.01","0.04","0.08","0.2","0.4","1","2","5","10","15","20",">=22.5"/)
-      if (str_lower(Source).eq."fluxnet") then
+      ; if (str_lower(Source).eq."fluxnet") then
+      if (any(str_lower(Source).eq.(/"foonet","fluxnet"/))) then ; the FOONET benchmark
          delete(cnlevels)
          delete(lblabels)
          ;cnlevels = (/0.0,0.01,0.02,0.05,0.1,0.2,0.5,1,2,3,4,5/)
@@ -601,7 +602,8 @@ if (str_lower(KeyWord).eq."bias") then
       ;cnlevels = (/-12.,-10.,-8.,-6.,-4.,-2.,0.,2.,4.,6.,8.,10.,12./)
       cnlevels = (/-6.5,-5.5,-4.5,-3.5,-2.5,-1.5,-0.5,0.5,1.5,2.5,3.5,4.5,5.5,6.5/)
       lblabels = (/"<-6.5","-6","-5","-4","-3","-2","-1","0","1","2","3","4","5","6",">=6.5"/)
-      if (str_lower(Source).eq."fluxnet") then
+      ; if (str_lower(Source).eq."fluxnet") then
+      if (any(str_lower(Source).eq.(/"fluxnet","foonet"/))) then ; the FOONET benchmark
          delete(cnlevels)
          delete(lblabels)
          ;cnlevels = (/-6.,-5.,-4.,-3.,-2.,-1.,0.,1.,2.,3.,4.,5.,6./)
@@ -834,7 +836,8 @@ if (str_lower(KeyWord).eq."rmse") then
       ;lblabels = (/"<0.1","0.1","0.2","0.5","1","2","3","4","5","6","7","8","9",">=10"/)
       cnlevels = (/0.0,0.1,0.3,0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5/)
       lblabels = (/"<0.0","0.05","0.2","0.4","1","2","3","4","5","6","7","8","9","10",">=10.5"/)
-      if (str_lower(Source).eq."fluxnet") then
+      ; if (str_lower(Source).eq."fluxnet") then
+      if (any(str_lower(Source).eq.(/"fluxnet","foonet"/))) then ; the FOONET benchmark
          delete(cnlevels)
          delete(lblabels)
          ;cnlevels = (/0.01,0.02,0.05,0.1,0.2,0.5,1,2,3,4,5/)
