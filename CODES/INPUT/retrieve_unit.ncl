@@ -142,7 +142,7 @@ begin
       results@FinalPlots = "mm/day"
    end if
 
-   if (any(str_lower(VarName).eq.(/"soilt", "sst", "tas", "ts"/))) then
+   if (any(str_lower(VarName).eq.(/"soilt", "sst", "tas", "ts", "tsl"/))) then
       results            = -273.14
       results@Initial    = "K"
       results@FinalTable = "C"
