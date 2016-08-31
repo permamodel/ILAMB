@@ -323,6 +323,15 @@ begin
      EndYr     = "2013"   
   end if
 
+  ; 'PBS' is the source for Kang's `tsl` benchmark.
+  if (str_lower(Source).eq."pbs") then
+    DataName  = Source ; Better description?
+    Dimens    = "D2s"
+    TRes      = "monthly"
+    StartYr   = "1999"
+    EndYr     = "2014"
+  end if
+
   if (str_lower(Source).eq."us.forest") then
      DataName  = "Contiguous U.S. + Alaska"
      Dimens    = "D2"   
@@ -852,6 +861,17 @@ begin
      if (str_lower(Source).eq."modis") then
         Reference  ="N/A"
      end if
+  end if
+
+  ; For the `tsl` benchmark developed by Kang.
+  if (str_lower(VarName).eq."tsl") then
+    LongName  = "Temperature of Soil"
+    VarModel = VarName
+    ModelComp = "Lmon"
+    Category  = CatNames(4) ; not sure -- see `soilt` above
+    if (str_lower(Source).eq."pbs") then
+      Reference  ="Wang et al. (2016)"
+    end if
   end if
 
   if (str_lower(VarName).eq."twsa") then
