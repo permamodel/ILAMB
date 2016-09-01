@@ -317,6 +317,14 @@ if (str_lower(KeyWord).eq."functionbar") then
    MaxLat = Xt
 end if
 
+; Define latlon box (approx bounds of Alaska) for PBS benchmarks.
+if (str_lower(Source).eq."pbs") then
+  MinLon = -170.
+  MaxLon = -140.
+  MinLat =   54.
+  MaxLat =   72.
+end if
+
 ; ######################################################################################
 ; ++++ set up cnlevels for annual mean plots ++++ 
 
