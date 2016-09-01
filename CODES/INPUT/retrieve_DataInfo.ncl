@@ -870,6 +870,7 @@ begin
     ModelComp = "Lmon"
     Category  = CatNames(4) ; not sure -- see `soilt` above
     SubGlobe  = "YES"
+    LandOnly  = "YES"
     if (str_lower(Source).eq."pbs") then
       Reference  ="Wang et al. (2016)"
     end if
