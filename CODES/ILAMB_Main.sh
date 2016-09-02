@@ -36,8 +36,3 @@ export PLOTTYPE=png
 date
 ncl -n main_ncl_code.ncl
 date
-
-# Clean up temporary files.
-if [ -e $ILAMB_TMPDIR ]; then
-    rm -rf $ILAMB_TMPDIR
-fi
