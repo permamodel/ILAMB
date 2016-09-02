@@ -11,10 +11,10 @@ export ILAMB_ROOT=`pwd`
 cd $ILAMB_CODESDIR
 
 # Allow a user to configure these directories.
-export ILAMB_DATADIR=$HOME/DATA
-export ILAMB_MODELSDIR=$HOME/MODELS
-export ILAMB_OUTPUTDIR=$HOME/OUTPUT
-export ILAMB_TMPDIR=/tmp/ILAMB
+export ILAMB_DATADIR=/home/ILAMB/DATA
+export ILAMB_MODELSDIR=/home/ILAMB/MODELS
+export ILAMB_OUTPUTDIR=/home/ILAMB/OUTPUT
+export ILAMB_TMPDIR=/home/ILAMB/tmp
 
 echo "ILAMB directories:"
 echo "ILAMB_ROOT      $ILAMB_ROOT"
