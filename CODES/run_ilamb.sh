@@ -39,6 +39,7 @@ export ILAMB_CODESDIR=$ILAMB_ROOT/CODES
 export ILAMB_DATADIR=$nas_dir/DATA
 export ILAMB_MODELSDIR=$nas_dir/MODELS
 export ILAMB_OUTPUTDIR=$tmp_dir/$output_name
+export ILAMB_TMPDIR=$tmp_dir/tmp_$job_id
 stdout_file=$ILAMB_OUTPUTDIR/ILAMB.stdout
 stderr_file=$ILAMB_OUTPUTDIR/ILAMB.stderr
 
@@ -57,10 +58,10 @@ tar zcf $tarfile -C $tmp_dir $output_name
 mv $tarfile $PBS_O_WORKDIR
 
 # Cleanup.
-to_remove="$stdout_file $stderr_file \
+to_remove="$stdout_file \
+    $stderr_file \
     $ILAMB_OUTPUTDIR \
-    $ILAMB_CODESDIR/temp.data \
-    $ILAMB_CODESDIR/tempfiles"
+    $ILAMB_TMPDIR"
 for item in $to_remove; do
     if [ -e $item ]; then
 	rm -rf $item

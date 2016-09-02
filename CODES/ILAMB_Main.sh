@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# ILAMB execution script.
+# A simple ILAMB execution script, useful for debugging.
 #
-# Run with:
+# From this directory, run with:
 #   $ bash ILAMB_Main.sh 1>stdout 2>stderr
 
 export ILAMB_CODESDIR=`pwd`
@@ -14,6 +14,7 @@ cd $ILAMB_CODESDIR
 export ILAMB_DATADIR=$HOME/DATA
 export ILAMB_MODELSDIR=$HOME/MODELS
 export ILAMB_OUTPUTDIR=$HOME/OUTPUT
+export ILAMB_TMPDIR=/tmp/ILAMB
 
 echo "ILAMB directories:"
 echo "ILAMB_ROOT      $ILAMB_ROOT"
@@ -21,6 +22,7 @@ echo "ILAMB_CODESDIR  $ILAMB_CODESDIR"
 echo "ILAMB_DATADIR   $ILAMB_DATADIR"
 echo "ILAMB_MODELSDIR $ILAMB_MODELSDIR"
 echo "ILAMB_OUTPUTDIR $ILAMB_OUTPUTDIR"
+echo "ILAMB_TMPDIR    $ILAMB_TMPDIR"
 
 ## Define model simulation type, CLM or CMIP5.
 export MODELTYPE=CMIP5
@@ -34,3 +36,8 @@ export PLOTTYPE=png
 date
 ncl -n main_ncl_code.ncl
 date
+
+# Clean up temporary files.
+if [ -e $ILAMB_TMPDIR ]; then
+    rm -rf $ILAMB_TMPDIR
+fi
