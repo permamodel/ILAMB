@@ -66,7 +66,7 @@ delete(VarDirList)
 
 if (str_lower(FileType).eq."all") then
 
-   TempDir = ILAMBDir + "/CODES/tempfiles"
+   TempDir = getenv("ILAMB_TMPDIR") + "/tempfiles"
 
    system ("/bin/rm -f " + TempDir + "/*")
 

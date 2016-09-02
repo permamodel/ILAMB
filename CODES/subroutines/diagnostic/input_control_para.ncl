@@ -502,7 +502,7 @@ do nv = 0, nvar - 1
          runID  = where(nrun.eq.0, 0, runID)
          runID  = where(cmipID.eq.0, 0, runID)
 
-         TableFileName = ILAMBDir + "/CODES/tempfiles/input_para_" + str_lower(VarObs) + "_" + str_upper(Source)
+         TableFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarObs) + "_" + str_upper(Source)
 
          header=new((/16/), string)
 
@@ -596,7 +596,7 @@ nvpa = nk
 do nk =0, nvpa-1
 
   ;++++ input the control parameters for the 1st variable ++++
-  TableFileName1 = ILAMBDir + "/CODES/tempfiles/input_para_" + str_lower(Vars1(nk)) + "_" + str_upper(Sources1(nk))
+  TableFileName1 = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(Vars1(nk)) + "_" + str_upper(Sources1(nk))
 
   data_1d = asciiread(str_squeeze(TableFileName1),-1,"string")
 
@@ -621,7 +621,7 @@ do nk =0, nvpa-1
   nmod          = dimsizes(ModelNames)-1
 
   ;++++ input the control parameters for the 2nd variable ++++
-  TableFileName2 = ILAMBDir + "/CODES/tempfiles/input_para_" + str_lower(Vars2(nk)) + "_" + str_upper(Sources2(nk))
+  TableFileName2 = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(Vars2(nk)) + "_" + str_upper(Sources2(nk))
 
   data_1d = asciiread(str_squeeze(TableFileName2),-1,"string")
 
@@ -687,7 +687,7 @@ do nk =0, nvpa-1
   header(25) = "                                       "
   header(26)= "      Model Name" + "      cmipID  " + " runID "
 
-  TableFileName = ILAMBDir + "/CODES/tempfiles/input_para_pair" + sprinti("%0.2i",nk+1)
+  TableFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_pair" + sprinti("%0.2i",nk+1)
 
   write_table(TableFileName, "w", [/header/], "%s")
   write_table(TableFileName,"a",[/ModelNames,cmipID,runID/], "%16s %8i %7i")
@@ -709,7 +709,7 @@ end if
 do nck =0, nchk-1
 
   ;++++ input the control parameters for variables ++++
-  TableFileName = ILAMBDir + "/CODES/tempfiles/input_para_" + str_lower(VarNameCheck(nck)) + "_" + str_upper(SourcesCheck(nck))
+  TableFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarNameCheck(nck)) + "_" + str_upper(SourcesCheck(nck))
   print(TableFileName)
 
   data_1d = asciiread(str_squeeze(TableFileName),-1,"string")
@@ -760,7 +760,7 @@ do nck =0, nchk-1
   header(13) = "                                                                                               "
   header(14) = "      Model Name" + "     cmipID  " + " runID "
 
-  TableFileName = ILAMBDir + "/CODES/tempfiles/input_para_check" + sprinti("%0.2i",nck+1)
+  TableFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_check" + sprinti("%0.2i",nck+1)
 
   write_table(TableFileName, "w", [/header/], "%s")
   write_table(TableFileName,"a",[/ModelNames,cmipID,runID/], "%16s %8i %7i")

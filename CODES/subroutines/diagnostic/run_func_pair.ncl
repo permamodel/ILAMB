@@ -20,7 +20,7 @@ begin
 
 ; ++++++ input control parameters from a file: ../CODES/tempfiles/input_para_pair* +++++
 
-  TableFileName = DataDir + "/CODES/tempfiles/input_para_pair" + sprinti("%0.2i",nvpa)
+  TableFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_pair" + sprinti("%0.2i",nvpa)
 
   data_1d = asciiread(str_squeeze(TableFileName),-1,"string")
   ;print(data_1d)

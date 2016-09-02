@@ -1530,7 +1530,7 @@ EE0       = constants@EulerNumb
 
 do nvp =1, nvpa
 
-  ControlFileName = DataDir + "/CODES/tempfiles/input_para_pair" + sprinti("%0.2i",nvp)
+  ControlFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_pair" + sprinti("%0.2i",nvp)
 
   data_1d = asciiread(str_squeeze(ControlFileName),-1,"string")
 

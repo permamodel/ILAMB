@@ -19,7 +19,7 @@ print("                                                                       ")
 print("--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->")
 print("Searching All Data Sources for the Variable: " + VarName)
 
-InputFiles = DataDir + "/CODES/tempfiles/input_para_" + str_lower(VarName)
+InputFiles = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarName)
 
 FileList = systemfunc ("ls " + InputFiles + "*")
 
@@ -69,7 +69,7 @@ nKeyWords   = 0
 
 do ns=0,nsur-1
 
-  TableFileName = DataDir + "/CODES/tempfiles/input_para_" + str_lower(VarName) + "_" + str_upper(Sources(ns))
+  TableFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarName) + "_" + str_upper(Sources(ns))
 
   data_1d = asciiread(str_squeeze(TableFileName),-1,"string")
   ;print(data_1d)
