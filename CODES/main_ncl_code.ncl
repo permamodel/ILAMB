@@ -17,7 +17,7 @@ begin
   PlotType = str_lower(str_squeeze(PlotType))
 
   ; ++++ check if the sub directory tempfiles exists in INPUT, if not, create it ++++
-  TempDir = ILAMBDir + "/CODES/tempfiles"
+  TempDir = getenv("ILAMB_TMPDIR") + "/tempfiles"
 
   system ("csh -c 'if (! -d "+TempDir+") then; mkdir "+TempDir+"; end if'")
 

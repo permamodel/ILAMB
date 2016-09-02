@@ -15,7 +15,7 @@ begin
 
 ; ++++++ input control parameters from a file: ../CODES/tempfiles/input_para_check* +++++
 
-  TableFileName = DataDir + "/CODES/tempfiles/input_para_check" + sprinti("%0.2i",nck)
+  TableFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_check" + sprinti("%0.2i",nck)
 
   data_1d = asciiread(str_squeeze(TableFileName),-1,"string")
   ;print(data_1d)

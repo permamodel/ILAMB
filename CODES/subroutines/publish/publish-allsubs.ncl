@@ -1147,7 +1147,7 @@ if (nck.ge.1) then
 
    ;++++ read data from saved files ++++
 
-   FileName1 = DataDir + "/CODES/tempfiles/input_para_check" + sprinti("%0.2i",nck)
+   FileName1 = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_check" + sprinti("%0.2i",nck)
    print(FileName1)
 
    data_1d  = asciiread(str_squeeze(FileName1),-1,"string")
@@ -2850,7 +2850,7 @@ nkeys     = 0
 
 do nv = 0, nvar-1
 
-   InputFiles = DataDir + "/CODES/tempfiles/input_para_" + str_lower(VarNames(nv))
+   InputFiles = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarNames(nv))
 
    FileList = systemfunc ("ls " + InputFiles + "*")
 
@@ -2946,7 +2946,7 @@ do nv = 0, nvar-1
    print("--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->")
    print("Searching All Data Sources for the Variable: " + VarNames(nv))
 
-   InputFiles = DataDir + "/CODES/tempfiles/input_para_" + str_lower(VarNames(nv))
+   InputFiles = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarNames(nv))
 
    FileList = systemfunc ("ls " + InputFiles + "*")
 
@@ -2983,7 +2983,7 @@ do nv = 0, nvar-1
          delete(Sourcet0)
          delete(Sourcet1)
 
-         TableFileName = DataDir + "/CODES/tempfiles/input_para_" + str_lower(VarNames(nv)) + "_" + str_upper(Source)
+         TableFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarNames(nv)) + "_" + str_upper(Source)
 
          data_1d = asciiread(str_squeeze(TableFileName),-1,"string")
 
@@ -3037,7 +3037,7 @@ do nv = 0, nvar-1
       delete(Sourcet0)
       delete(Sourcet1)
 
-      TableFileName = DataDir + "/CODES/tempfiles/input_para_" + str_lower(VarNames(nv)) + "_" + str_upper(Source)
+      TableFileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarNames(nv)) + "_" + str_upper(Source)
       data_1d = asciiread(str_squeeze(TableFileName),-1,"string")
 
       KeyWord0     = str_get_field(data_1d(13), 2, ":")
@@ -3573,7 +3573,7 @@ nmodx = 0
 
 do nvp =0, nvpa-1
 
-  FileName = DataDir + "/CODES/tempfiles/input_para_pair" + sprinti("%0.2i",nvp+1)
+  FileName = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_pair" + sprinti("%0.2i",nvp+1)
   print(FileName)
 
   data_1d  = asciiread(str_squeeze(FileName),-1,"string")
@@ -3986,7 +3986,7 @@ VarListSite    = new((/nvar/), string)
 SourceListSite = new((/nvar/), string)
 
 do nck =0, nchk-1
-   FileName1 = DataDir + "/CODES/tempfiles/input_para_check" + sprinti("%0.2i",nck+1)
+   FileName1 = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_check" + sprinti("%0.2i",nck+1)
    print(FileName1)
 
    data_1d  = asciiread(str_squeeze(FileName1),-1,"string")
@@ -4024,7 +4024,7 @@ do nv=0,nvar-1
    print("--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->--->")
    print("Searching All Data Sources for the Variable: " + VarName)
 
-   InputFiles = DataDir + "/CODES/tempfiles/input_para_" + str_lower(VarName)
+   InputFiles = getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarName)
 
    FileList = systemfunc ("ls " + InputFiles + "*")
 
@@ -4096,7 +4096,7 @@ do nv=0,nvar-1
 
    do ns=0,nsur-1
 
-      TableFileName= DataDir + "/CODES/tempfiles/input_para_" + str_lower(VarName) + "_" + str_upper(Sources(ns))
+      TableFileName= getenv("ILAMB_TMPDIR") + "/tempfiles/input_para_" + str_lower(VarName) + "_" + str_upper(Sources(ns))
 
       data_1d      = asciiread(TableFileName,-1,"string")
 
