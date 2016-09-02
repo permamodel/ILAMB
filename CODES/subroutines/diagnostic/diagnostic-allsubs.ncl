@@ -1112,10 +1112,12 @@ do nv = 0, nmod
 
      header = (/"Model", "Annual", "Bias", "RMSE"/)
 
-     write_table("temp.data","w",[/header(0),header(1),header(2),header(3)/], "%10s %9s %9s %9s")
-     write_table("temp.data","a",[/ModelNameList,anual(:,nr), bias(:,nr), rmse(:,nr)/], "%10s %9.2f %9.2f %9.2f")
+     temp_data_file = getenv("ILAMB_TMPDIR") + "/temp.data"
 
-     infos = asciiread("temp.data",-1,"string")
+     write_table(temp_data_file,"w",[/header(0),header(1),header(2),header(3)/], "%10s %9s %9s %9s")
+     write_table(temp_data_file,"a",[/ModelNameList,anual(:,nr), bias(:,nr), rmse(:,nr)/], "%10s %9.2f %9.2f %9.2f")
+
+     infos = asciiread(temp_data_file,-1,"string")
 
      Draw_TS_Check (PlotFileName, tt1(:,nr,:), tt2(:,nr,:), infos)
 
