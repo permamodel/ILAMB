@@ -18,8 +18,7 @@ begin
 
   ; ++++ check if the sub directory tempfiles exists in INPUT, if not, create it ++++
   TempDir = getenv("ILAMB_TMPDIR") + "/tempfiles"
-
-  system ("csh -c 'if (! -d "+TempDir+") then; mkdir "+TempDir+"; end if'")
+  system("if ! test -d " + TempDir +" ; then mkdir -p " + TempDir + " ; fi")
 
 ; ++++++ Initializate all directories to empty +++++
 
