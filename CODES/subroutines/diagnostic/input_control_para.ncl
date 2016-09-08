@@ -9,7 +9,7 @@ begin
 ILAMBDir = getenv("ILAMB_ROOT")
 
 ; ++++++++++ Find the file name ++++++++++
-FileList = systemfunc ("ls " + ILAMBDir + "/CODES/INPUT/table_scoring_metrics.txt")
+FileList = systemfunc ("ls " + getenv("ILAMB_CODESDIR") + "/INPUT/table_scoring_metrics.txt")
 
 if (fileexists(FileList)) then
 
@@ -75,7 +75,7 @@ end if
 ; +++++++ input control parameters from the file: ILAMB_PARA_SETUP +++++++
 
 ; ++++++++++ read all input parameters from the control file ++++++++++
-FileList = systemfunc ("ls " + ILAMBDir + "/CODES/INPUT/ILAMB_PARA_SETUP")
+FileList = systemfunc ("ls " + getenv("ILAMB_CODESDIR") + "/INPUT/ILAMB_PARA_SETUP")
 
 if (fileexists(FileList)) then
 
