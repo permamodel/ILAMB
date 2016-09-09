@@ -326,9 +326,9 @@ begin
   ; 'PBS' is the source for Kang's `tsl` benchmark.
   if (str_lower(Source).eq."pbs") then
     DataName  = Source ; Better description?
-    Dimens    = "D2s"
+    Dimens    = "D1s"
     TRes      = "monthly"
-    StartYr   = "1999"
+    StartYr   = "2001"
     EndYr     = "2014"
   end if
 
