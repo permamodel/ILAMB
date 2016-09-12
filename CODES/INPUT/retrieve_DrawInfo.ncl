@@ -570,8 +570,8 @@ if (str_lower(KeyWord).eq."annualmean") then
 
    ; Kang Wang's `tsl` benchmark.
    if (str_lower(varID).eq."tsl") then
-     cnlevels = (/-20.0,-15.0,-10.0,-5.0,0.0,5.0,10.0,15.0,20.0/)
-     lblabels = (/"<-20","-20","-15","-10","-5","0","5","10","15","20",">=20"/)
+     cnlevels = (/-25.1, -25.0, -20.0, -15.0, -10.0, -5.0, 0.0, 5.0, 10.0, 10.1/)
+     lblabels = (/"<-25", "-25", "-20", "-15", "-10", "-5", "0", "5", "10", ">10"/)
    end if
 
 end if
@@ -775,8 +775,8 @@ if (str_lower(KeyWord).eq."bias") then
 
    ; Kang Wang's `tsl` benchmark.
    if (str_lower(varID).eq."tsl") then
-     cnlevels = (/-20.0,-15.0,-10.0,-5.0,0.0,5.0,10.0,15.0,20.0/)
-     lblabels = (/"<-20","-20","-15","-10","-5","0","5","10","15","20",">=20"/)
+     cnlevels = (/-20.1, -20.0, -15.0, -10.0, -5.0, 0.0, 5.0, 10.0, 15.0, 20.0, 20.1/)
+     lblabels = (/"<-20", "-20", "-15", "-10", "-5", "0", "5", "10", "15", "20", ">20"/)
    end if
 
 end if
@@ -1024,8 +1024,8 @@ if (str_lower(KeyWord).eq."rmse") then
 
    ; Kang Wang's `tsl` benchmark.
    if (str_lower(varID).eq."tsl") then
-     cnlevels = (/0.1,0.2,0.5,1.0,2.0,5.0,10.0,20.0/)
-     lblabels = (/"<-0.1","0.1","0.2","0.5","1.0","2","5","10","20",">=20"/)
+     cnlevels = (/0.9, 1.0, 2.0, 5.0, 10.0, 20.0, 50.0, 50.1/)
+     lblabels = (/"<-1", "1", "2", "5", "10", "20", "50", ">50"/)
    end if
 
 end if
