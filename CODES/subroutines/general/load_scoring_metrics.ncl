@@ -9,7 +9,7 @@ begin
 DataDir = getenv("ILAMB_ROOT")
 
 ; ++++++++++ Find the file name ++++++++++
-FileList = systemfunc ("ls " + DataDir + "/CODES/INPUT/table_scoring_metrics.txt")
+FileList = systemfunc ("ls " + getenv("ILAMB_CODESDIR") + "/INPUT/table_scoring_metrics.txt")
 
 if (fileexists(FileList)) then
 

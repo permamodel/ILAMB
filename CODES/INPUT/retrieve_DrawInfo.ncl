@@ -317,6 +317,14 @@ if (str_lower(KeyWord).eq."functionbar") then
    MaxLat = Xt
 end if
 
+; Define latlon box (approx bounds of Alaska) for PBS benchmarks.
+if (str_lower(Source).eq."pbs") then
+  MinLon = -170.
+  MaxLon = -140.
+  MinLat =   54.
+  MaxLat =   72.
+end if
+
 ; ######################################################################################
 ; ++++ set up cnlevels for annual mean plots ++++ 
 
@@ -560,6 +568,12 @@ if (str_lower(KeyWord).eq."annualmean") then
       lblabels = (/"<-22.5","-20","-15","-10","-5","0","5","10","15","20","25","30","35",">=37.5"/)
    end if
 
+   ; Kang Wang's `tsl` benchmark.
+   if (str_lower(varID).eq."tsl") then
+     cnlevels = (/-25.1, -25.0, -20.0, -15.0, -10.0, -5.0, 0.0, 5.0, 10.0, 10.1/)
+     lblabels = (/"<-25", "-25", "-20", "-15", "-10", "-5", "0", "5", "10", ">10"/)
+   end if
+
 end if
 
 ; ######################################################################################
@@ -757,6 +771,12 @@ if (str_lower(KeyWord).eq."bias") then
       ;cnlevels = (/-12.,-10.,-8.,-6.,-4.,-2.,0.,2.,4.,6.,8.,10.,12./)
       cnlevels = (/-13.,-11.,-9.,-7.,-5.,-3.,-1.,1.,3.,5.,7.,9.,11.,13./)
       lblabels = (/"<-13","-12","-10","-8","-6","-4","-2","0","2","4","6","8","10","12",">=13"/)
+   end if
+
+   ; Kang Wang's `tsl` benchmark.
+   if (str_lower(varID).eq."tsl") then
+     cnlevels = (/-20.1, -20.0, -15.0, -10.0, -5.0, 0.0, 5.0, 10.0, 15.0, 20.0, 20.1/)
+     lblabels = (/"<-20", "-20", "-15", "-10", "-5", "0", "5", "10", "15", "20", ">20"/)
    end if
 
 end if
@@ -1000,6 +1020,12 @@ if (str_lower(KeyWord).eq."rmse") then
       ;lblabels = (/"<0.2","0.2","0.5","1","2","3","4","5","6","7","8","9","10","12","14",">=17"/)
       cnlevels = (/0.1,0.2,0.4,0.6,0.8,1,2,4,6,7,9,11,13,15,17/)
       lblabels = (/"<0.0","0.1","0.3","0.5","0.7","0.9","1.5","2","4","6","8","10","12","14","16",">=17"/)
+   end if
+
+   ; Kang Wang's `tsl` benchmark.
+   if (str_lower(varID).eq."tsl") then
+     cnlevels = (/0.9, 1.0, 2.0, 5.0, 10.0, 20.0, 50.0, 50.1/)
+     lblabels = (/"<-1", "1", "2", "5", "10", "20", "50", ">50"/)
    end if
 
 end if

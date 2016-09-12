@@ -284,6 +284,6 @@ end if
 delete(EpsFiles)
 
 ; ++++++++++ go back to main Codes directory ++++++++++++
-system ("cd " + DataDir + "/CODES")
+system ("cd " + getenv("ILAMB_CODESDIR"))
 
 end

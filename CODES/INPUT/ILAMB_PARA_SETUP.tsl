@@ -1,0 +1,75 @@
+1. List Model names and # of ensembles here
+Model Name    |Select Model|Ensemble|  Experiment  |
+MeanModel     |      1     |    1   |  historical  |
+BIOME-BGC     |      0     |    1   |  historical  |
+CLASS-CTEM-N  |      1     |    1   |  historical  |
+CLM4          |      1     |    1   |  historical  |
+CLM4VIC       |      1     |    1   |  historical  |
+DLEM          |      0     |    1   |  historical  |
+GTEC          |      1     |    1   |  historical  |
+ISAM          |      0     |    1   |  historical  |
+LPJ-wsl       |      1     |    1   |  historical  |
+ORCHIDEE-LSCE |      1     |    1   |  historical  |
+SiB3          |      0     |    1   |  historical  |
+SiBCASA       |      1     |    1   |  historical  |
+TEM6          |      0     |    1   |  historical  |
+TRIPLEX-GHG   |      1     |    1   |  historical  |
+VEGAS2.1      |      0     |    1   |  historical  |
+VISIT         |      0     |    1   |  historical  |
+NorESM1-ME    |      0     |    1   |  historical  |
+
+2. List Variables and  Diagnostic packages (KeyWords) here
+          |  Benchmark  |  Period | Regional Analysis |   Global Patterns  |             Scoring Metrics                    |
+Variables |    Sources  |Start-End| Multi |   Single  |AnnualMean|Bias|RMSE|GlobalBias|RMSE|Phase|Taylor|Interannual|OverAll|
+tsl       |     All     |2005-2010|       |   Alaska  |     1    | 1  | 1  |    1     | 1  |  1  |   1  |    1      |   1   |
+
+3. List pair of Variables for their relationship
+Variables |    Source   |albedo|biomass|burntArea|co2|et|gpp|le|nee|pr|reco|rlds|rlns|rlus|rns|rsds|rsns|rsus|sh|soilc|soilm|sst|tas|twsa|twsa_per|tsl|
+albedo    |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+biomass   |Global.Carbon|   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+burntArea |    GFED3    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+co2       |   NOAA.GMD  |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+et        |    GLEAM    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+gpp       | Fluxnet-MTE |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+lai       |    MODIS    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+le        |             |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+nee       |             |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+pr        |    GPCP2    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+reco      |             |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+rlds      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+rlns      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+rlus      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+rns       |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+rsds      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+rsns      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+rsus      |    CERES    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+sh        |             |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+soilc     |     HWSD    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+soilm     |     ECV     |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+sst       |  NOAA.IO2   |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+tas       |     CRU     |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+twsa      |    GRACE    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+twsa_per  |    GRACE    |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+tsl       |     PBS     |   0  |   0   |    0    | 0 | 0| 0 | 0| 0 | 0|  0 |  0 |  0 |  0 | 0 |  0 |  0 |  0 | 0|  0  |  0  | 0 | 0 |  0 |    0   | 0 |
+
+4. List Variables for detail Check 
+Variables |   Sources |  Region |
+tsl       |   PBS     |  Alaska |
+
+Notes: This table (above) contains all input parameters for your choose to run ILAMB diagnostic package. 
+       The numbers shown above are default to run the package. Based on your purpose, please change
+       the numbere as you want. There are 3 parts that you need to note.
+
+       Part 1: List Model names and # of ensembles
+       You may choose any model or add new model here. There are 2 items that you can change.
+          cmipID: which model you want to include in your diagnostics, 1: include this model, 0: exclude; 
+           runID: how many of ensembles you want to use, if you want to include all enembles, please enter 0 
+                  or a number larger its availibity. 
+
+       Part 2: List Variables and Diagnostic packages (KeyWords)
+       You may choose any variable or diagnostics (Keywords) or add new variables here. 1: include, 0: not include.
+
+       Part 3: List pair of Variables for their relationship
+       You may choose any two variables for their relations. The meanings of numbers are explained below:
+       0: not include; 1-3: correlation; 4: linear function of one variable (x: column) to another (y: row);
+       5: linear prediction of one variable (y: row) with another (x: column); and more .......

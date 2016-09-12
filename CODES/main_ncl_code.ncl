@@ -5,7 +5,7 @@
 ;**** question, please contact Dr. Randerson (jranders@uci.edu) or Mingquan Mu (mmu@uci.edu). ****
 ;*************************************************************************************************
 
-loadscript ("$ILAMB_ROOT/CODES/subroutines/library/library.ncl")
+loadscript ("$ILAMB_CODESDIR/subroutines/library/library.ncl")
 
 ; ################################################################################################################################
 
