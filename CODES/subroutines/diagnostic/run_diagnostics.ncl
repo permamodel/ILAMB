@@ -337,7 +337,8 @@ do ns=0,nsur-1
 
   UnitCoef = retrieve_unit (VarName, Source)
 
-  if (any(str_lower(VarName).eq.(/"sst", "tas", "ts"/))) then
+  ; Include `tsl` @mdpiper
+  if (any(str_lower(VarName).eq.(/"sst", "tas", "ts", "tsl"/))) then
      ts_obs     = ts_obs+UnitCoef
      ts_mod     = ts_mod+UnitCoef
      rawavg_mod = rawavg_mod+UnitCoef
