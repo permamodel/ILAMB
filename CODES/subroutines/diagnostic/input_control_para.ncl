@@ -1,4 +1,4 @@
-function input_control_para (nvpa:integer, nchk:integer)
+function input_control_para (nvpa:integer, nchk:integer, ParameterFile:string)
 
 begin
 
@@ -75,7 +75,8 @@ end if
 ; +++++++ input control parameters from the file: ILAMB_PARA_SETUP +++++++
 
 ; ++++++++++ read all input parameters from the control file ++++++++++
-FileList = systemfunc ("ls " + getenv("ILAMB_CODESDIR") + "/INPUT/ILAMB_PARA_SETUP")
+; FileList = systemfunc ("ls " + getenv("ILAMB_CODESDIR") + "/INPUT/ILAMB_PARA_SETUP")
+FileList = ParameterFile
 
 if (fileexists(FileList)) then
 

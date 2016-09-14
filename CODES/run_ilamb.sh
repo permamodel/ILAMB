@@ -6,19 +6,16 @@
 # ILAMB execution script adapted to run on `beach` through its queue
 # manager. Submit this script with:
 #
-#   $ qsub /home/csdms/tools/ILAMB/CODES/run_ilamb.sh -m ae -M <email>
+#   $ qsub -v parameter_file='/path/to/ILAMB_PARA_SETUP' \
+#   > /home/csdms/tools/ILAMB/CODES/run_ilamb.sh -m ae -M <email>
 #
 # The output from the ILAMB run is saved to a tarball in the user's
 # working directory, along with PBS output and error logs.
 
-# Define model simulation type, CLM or CMIP5.
-export MODELTYPE=CMIP5
-
-# Define spatial resolution for diagnostics, 0.5x0.5, 1x1 or 2.5x2.5.
-export SPATRES=0.5x0.5
-
-# Define plot file type: eps, pdf, png, or ps.
-export PLOTTYPE=png
+if [ -z "$parameter_file" ]; then
+    echo "Error: Must supply path to ILAMB parameter file"
+    exit 1
+fi
 
 # Define directories.
 tools_dir=/home/csdms/tools
@@ -43,13 +40,30 @@ export ILAMB_TMPDIR=$tmp_dir/tmp_$job_id
 stdout_file=$ILAMB_OUTPUTDIR/ILAMB.stdout
 stderr_file=$ILAMB_OUTPUTDIR/ILAMB.stderr
 
+# Define model simulation type, CLM or CMIP5.
+export MODELTYPE=CMIP5
+
+# Define spatial resolution for diagnostics, 0.5x0.5, 1x1 or 2.5x2.5.
+export SPATRES=0.5x0.5
+
+# Define plot file type: eps, pdf, png, or ps.
+export PLOTTYPE=png
+
 # Copy OUTPUT to tmp directory for job.
 cp -R $nas_dir/OUTPUT $ILAMB_OUTPUTDIR
 
 # Run ILAMB.
 cd $ILAMB_CODESDIR
+echo "ILAMB_ROOT           $ILAMB_ROOT"
+echo "ILAMB_CODESDIR       $ILAMB_CODESDIR"
+echo "ILAMB_DATADIR        $ILAMB_DATADIR"
+echo "ILAMB_MODELSDIR      $ILAMB_MODELSDIR"
+echo "ILAMB_OUTPUTDIR      $ILAMB_OUTPUTDIR"
+echo "ILAMB_TMPDIR         $ILAMB_TMPDIR"
+echo "ILAMB parameter file $parameter_file"
+echo "HOSTNAME             $HOSTNAME"
 echo "ILAMB start:" `date`
-ncl -n main_ncl_code.ncl 1> $stdout_file 2> $stderr_file
+ncl -n main_ncl_code.ncl ParameterFile=\"$parameter_file\" 1>$stdout_file 2>$stderr_file
 echo "ILAMB finish:" `date`
 
 # Package results.

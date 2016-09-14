@@ -11,6 +11,13 @@ loadscript ("$ILAMB_CODESDIR/subroutines/library/library.ncl")
 
 begin
 
+  ; Check that the user has included the path to the ILAMB parameter file.
+  if .not.isvar((/"ParameterFile"/)) then
+    print("Error: ParameterFile must be defined.")
+    status_exit(1)
+  end if
+  print(ParameterFile)
+
   ILAMBDir = getenv("ILAMB_ROOT")
 
   PlotType = getenv("PLOTTYPE")
@@ -28,8 +35,7 @@ begin
 
   nvpa = 0
   nchk = 0
-
-  VarNames = input_control_para (nvpa, nchk)
+  VarNames = input_control_para(nvpa, nchk, ParameterFile)
 
 ; +++++++++++ Run Global Variable diagnostics +++++++++++++
 
