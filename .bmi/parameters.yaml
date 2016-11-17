@@ -254,16 +254,6 @@ study_variable:
       - tas
       - tsl
       - twsa
-benchmark_source:
-  description: Source for benchmark data (replace with lookup table)
-  value:
-    type: choice
-    default: FLUXNET
-    choices:
-      - FLUXNET
-      - NOAA.GMD
-      - PBS
-      - WRMC.BSRN
 start_year:
   description: Start year of study
   value:
