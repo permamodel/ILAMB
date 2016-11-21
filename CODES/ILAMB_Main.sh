@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# A simple ILAMB execution script, useful for debugging.
+# An ILAMB execution script, useful for debugging.
 #
 # From this directory, run with:
 #   $ bash ILAMB_Main.sh /path/to/ILAMB_PARA_SETUP 1>stdout 2>stderr &
@@ -20,7 +20,6 @@ export ILAMB_DATADIR=/nas/data/ILAMB/DATA
 export ILAMB_MODELSDIR=/nas/data/ILAMB/MODELS
 export ILAMB_OUTPUTDIR=/nas/data/ILAMB/tmp/OUTPUT
 export ILAMB_TMPDIR=/nas/data/ILAMB/tmp
-
 echo "ILAMB files and directories:"
 echo "ILAMB_ROOT           $ILAMB_ROOT"
 echo "ILAMB_CODESDIR       $ILAMB_CODESDIR"
@@ -29,6 +28,11 @@ echo "ILAMB_MODELSDIR      $ILAMB_MODELSDIR"
 echo "ILAMB_OUTPUTDIR      $ILAMB_OUTPUTDIR"
 echo "ILAMB_TMPDIR         $ILAMB_TMPDIR"
 echo "ILAMB parameter file $1"
+
+# Configure NCL and ImageMagick. May need help from user.
+tools_dir=/home/csdms/tools
+export NCARG_ROOT=$tools_dir/ncl
+PATH=$NCARG_ROOT/bin:$tools_dir/ImageMagick/bin:$PATH
 
 ## Define model simulation type, CLM or CMIP5.
 export MODELTYPE=CMIP5
