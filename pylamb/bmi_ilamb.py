@@ -21,7 +21,7 @@ class BmiIlamb(object):
     def initialize(self, filename):
         self._args = [filename or 'ILAMB_PARA_SETUP']
 
-    def update(self, time):
+    def update(self):
         subprocess.check_call(self.args, shell=False, env=self._env)
         self._time = self.get_end_time()
 
