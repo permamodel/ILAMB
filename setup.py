@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 from pylamb import __version__
 
 
-setup(name='ILAMB',
+setup(name='pylamb',
       version=__version__,
       author='Mark Piper',
       author_email='mark.piper@colorado.edu',
