@@ -146,13 +146,13 @@ begin
   end if
 
   ; The FOONET benchmark; a test.
-  if (str_lower(Source).eq."foonet") then
-    DataName  = "FOONET sites"
-    Dimens    = "D1s"
-    TRes      = "monthly"
-    StartYr   = "1996"
-    EndYr     = "2005"
-  end if
+  ; if (str_lower(Source).eq."foonet") then
+  ;   DataName  = "FOONET sites"
+  ;   Dimens    = "D1s"
+  ;   TRes      = "monthly"
+  ;   StartYr   = "1996"
+  ;   EndYr     = "2005"
+  ; end if
   
   if (str_lower(Source).eq."fluxnet-mte") then
      DataName  = "Fluxnet Global MTE"
@@ -452,9 +452,9 @@ begin
      if (str_lower(Source).eq."fluxnet") then
         Reference  ="Lasslop et al. (2010)"
      end if
-     if (str_lower(Source).eq."foonet") then ; for the FOONET benchmark; a test
-        Reference  ="PBS team (2016)"
-     end if
+     ; if (str_lower(Source).eq."foonet") then ; for the FOONET benchmark; a test
+     ;    Reference  ="PBS team (2016)"
+     ; end if
      if (any(str_lower(Source).eq.(/"fluxnet-mte", "gbaf"/))) then
         Reference     = "Jung et al. (2009)"
         LandOnly      = "YES" 
