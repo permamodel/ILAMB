@@ -13,6 +13,6 @@ setup(name='pylamb',
       long_description=open('README.md').read(),
       packages=find_packages(),
       scripts=[
-          'scripts/run_ilamb.sh'
+          'scripts/ilamb-run.sh'
           ],
 )

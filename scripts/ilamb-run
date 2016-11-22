@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# ILAMB execution script that runs on `beach`. Run this script with:
+#
+# $ bash ilamb-run /path/to/ILAMB_PARA_SETUP
+#
+# The output is saved to the current directory.
+
+# Must provide the fully qualified path to the ILAMB parameter setup file.
+if [ -z "$1" ]; then
+    echo "Error: Must supply path to ILAMB parameter file"
+    exit 1
+fi
+export parameter_file=`readlink -m $1`
+
+# Define top-level directories.
+tools_dir=/home/csdms/tools
+nas_dir=/nas/data/ILAMB
+work_dir=$(pwd)
+
+# Configure NCL and ImageMagick.
+export NCARG_ROOT=$tools_dir/ncl
+PATH=$NCARG_ROOT/bin:$tools_dir/ImageMagick/bin:$PATH
+
+# Configure ILAMB paths.
+export ILAMB_ROOT=$tools_dir/ILAMB
+export ILAMB_CODESDIR=$ILAMB_ROOT/CODES
+export ILAMB_DATADIR=$nas_dir/DATA
+export ILAMB_MODELSDIR=$nas_dir/MODELS
+export ILAMB_OUTPUTDIR=$work_dir/ILAMB-output
+export ILAMB_TMPDIR=$work_dir/ILAMB-tmp
+stdout_file=$work_dir/ILAMB.stdout
+stderr_file=$work_dir/ILAMB.stderr
+
+# Define model simulation type, CLM or CMIP5.
+export MODELTYPE=CMIP5
+
+# Define spatial resolution for diagnostics, 0.5x0.5, 1x1 or 2.5x2.5.
+export SPATRES=0.5x0.5
+
+# Define plot file type: eps, pdf, png, or ps.
+export PLOTTYPE=png
+
+# Copy OUTPUT and parameter_file to work directory for job.
+cp -R $nas_dir/OUTPUT $ILAMB_OUTPUTDIR
+cp $parameter_file $work_dir
+
+# Run ILAMB.
+cd $ILAMB_CODESDIR
+start_time=`date`
+ncl -n main_ncl_code.ncl ParameterFile=\"$parameter_file\" 1>$stdout_file 2>$stderr_file
+echo "ILAMB_ROOT           $ILAMB_ROOT" >> $stdout_file
+echo "ILAMB_CODESDIR       $ILAMB_CODESDIR" >> $stdout_file
+echo "ILAMB_DATADIR        $ILAMB_DATADIR" >> $stdout_file
+echo "ILAMB_MODELSDIR      $ILAMB_MODELSDIR" >> $stdout_file
+echo "ILAMB_OUTPUTDIR      $ILAMB_OUTPUTDIR" >> $stdout_file
+echo "ILAMB_TMPDIR         $ILAMB_TMPDIR" >> $stdout_file
+echo "ILAMB parameter file $parameter_file" >> $stdout_file
+echo "HOSTNAME             $HOSTNAME" >> $stdout_file
+echo "ILAMB start:" $start_time >> $stdout_file
+echo "ILAMB finish:" `date` >> $stdout_file
