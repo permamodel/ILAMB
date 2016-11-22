@@ -1,5 +1,5 @@
 name: ILAMB
 language: python
 package: pylamb
-class: ILAMB
+class: BmiIlamb
 initialize_args: ILAMB_PARA_SETUP
