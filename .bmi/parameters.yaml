@@ -2,7 +2,7 @@ BIOME-BGC:
   description: BIOME-BGC
   value:
     type: choice
-    default: 0
+    default: 1
     choices:
       - 0
       - 1
@@ -10,7 +10,7 @@ CLASS-CTEM-N:
   description: CLASS-CTEM-N
   value:
     type: choice
-    default: 0
+    default: 1
     choices:
       - 0
       - 1
@@ -18,7 +18,7 @@ CLM4:
   description: CLM4
   value:
     type: choice
-    default: 0
+    default: 1
     choices:
       - 0
       - 1
