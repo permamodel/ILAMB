@@ -119,7 +119,7 @@ VISIT:
       - 0
       - 1
 bcc-csm1-1-m:
-  description: bcc-csm1-1-m
+  description: BCC-CSM1-1-M
   value:
     type: choice
     default: 0
@@ -151,7 +151,7 @@ CESM1-BGC:
       - 0
       - 1
 cesm1_2bgc:
-  description: cesm1_2bgc
+  description: CESM1-BGC
   value:
     type: choice
     default: 0
@@ -175,7 +175,7 @@ HadGEM2-ES:
       - 0
       - 1
 inmcm4:
-  description: inmcm4
+  description: INM-CM4
   value:
     type: choice
     default: 0
