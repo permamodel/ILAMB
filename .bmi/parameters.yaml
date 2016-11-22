@@ -1,0 +1,344 @@
+BIOME-BGC:
+  description: BIOME-BGC
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+CLASS-CTEM-N:
+  description: CLASS-CTEM-N
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+CLM4:
+  description: CLM4
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+CLM4VIC:
+  description: CLM4VIC
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+DLEM:
+  description: DLEM
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+GTEC:
+  description: GTEC
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+ISAM:
+  description: ISAM
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+LPJ-wsl:
+  description: LPJ-wsl
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+ORCHIDEE-LSCE:
+  description: ORCHIDEE-LSCE
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+SiB3:
+  description: SiB3
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+SiBCASA:
+  description: SiBCASA
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+TEM6:
+  description: TEM6
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+TRIPLEX-GHG:
+  description: TRIPLEX-GHG
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+VEGAS2.1:
+  description: VEGAS2.1
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+VISIT:
+  description: VISIT
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+bcc-csm1-1-m:
+  description: bcc-csm1-1-m
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+BNU-ESM:
+  description: BNU-ESM
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+CanESM2:
+  description: CanESM2
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+CESM1-BGC:
+  description: CESM1-BGC
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+cesm1_2bgc:
+  description: cesm1_2bgc
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+GFDL-ESM2G:
+  description: GFDL-ESM2G
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+HadGEM2-ES:
+  description: HadGEM2-ES
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+inmcm4:
+  description: inmcm4
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+IPSL-CM5A-LR:
+  description: IPSL-CM5A-LR
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+MIROC-ESM:
+  description: MIROC-ESM
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+MPI-ESM-LR:
+  description: MPI-ESM-LR
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+MRI-ESM1:
+  description: MRI-ESM1
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+NorESM1-ME:
+  description: NorESM1-ME
+  value:
+    type: choice
+    default: 0
+    choices:
+      - 0
+      - 1
+study_variable:
+  description: CMIP5 standard output variable
+  value:
+    type: choice
+    default: gpp
+    choices:
+      - albedo
+      - biomass
+      - biomes
+      - burntArea
+      - co2
+      - et
+      - gpp
+      - lai
+      - landfraction
+      - le
+      - nbp
+      - nee
+      - pr
+      - reco
+      - rlds
+      - rlns
+      - rlus
+      - rns
+      - rsds
+      - rsns
+      - rsus
+      - sh
+      - soilc
+      - tas
+      - tsl
+      - twsa
+start_year:
+  description: Start year of study
+  value:
+    type: int
+    default: 2000
+    range:
+      min: 1862
+      max: 2015
+end_year:
+  description: End year of study
+  value:
+    type: int
+    default: 2005
+    range:
+      min: 1862
+      max: 2015
+region:
+  description: Region covered in study
+  value:
+    type: choice
+    default: Alaska
+    choices:
+      - Alaska
+      - Global
+gp_annualmean:
+  description: Calculate annual mean
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+gp_bias:
+  description: Calculate bias
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+gp_rmse:
+  description: Calculate root mean square error
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+sm_globalbias:
+  description: Calculate global bias score
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+sm_rmse:
+  description: Calculate root mean square error score
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+sm_phase:
+  description: Calculate seasonal cycle score
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+sm_taylor:
+  description: Calculate spatial distribution score (Taylor diagram)
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
+sm_interannual:
+  description: Calculate interannual variability score
+  value:
+    type: choice
+    default: 1
+    choices:
+      - 0
+      - 1
