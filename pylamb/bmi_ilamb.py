@@ -45,3 +45,9 @@ class BmiIlamb(object):
 
     def get_current_time(self):
         return self._time
+
+    def get_time_step(self):
+        return 1.0
+
+    def get_time_units(self):
+        return 's'
