@@ -102,7 +102,7 @@ TRIPLEX-GHG:
     choices:
       - 0
       - 1
-VEGAS2.1:
+VEGAS21:
   description: VEGAS2.1
   value:
     type: choice
