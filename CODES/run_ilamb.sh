@@ -16,6 +16,7 @@ if [ -z "$parameter_file" ]; then
     echo "Error: Must supply path to ILAMB parameter file"
     exit 1
 fi
+parameter_file=`readlink -m $parameter_file`
 
 # Define directories.
 tools_dir=/home/csdms/tools
