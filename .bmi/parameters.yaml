@@ -151,7 +151,7 @@ CESM1-BGC:
       - 0
       - 1
 cesm1_2bgc:
-  description: CESM1-BGC
+  description: 'CESM1.2-BGC'
   value:
     type: choice
     default: 0
