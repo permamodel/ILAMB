@@ -41,7 +41,7 @@ export ILAMB_TMPDIR=$tmp_dir/tmp_$job_id
 stdout_file=$ILAMB_OUTPUTDIR/ILAMB.stdout
 stderr_file=$ILAMB_OUTPUTDIR/ILAMB.stderr
 
-# Define model simulation type, CLM or CMIP5.
+# Define model simulation type, CLM, CMIP5, or MsTMIP.
 export MODELTYPE=CMIP5
 
 # Define spatial resolution for diagnostics, 0.5x0.5, 1x1 or 2.5x2.5.

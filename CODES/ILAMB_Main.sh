@@ -34,7 +34,7 @@ tools_dir=/home/csdms/tools
 export NCARG_ROOT=$tools_dir/ncl
 PATH=$NCARG_ROOT/bin:$tools_dir/ImageMagick/bin:$PATH
 
-## Define model simulation type, CLM or CMIP5.
+## Define model simulation type, CLM, CMIP5, or MsTMIP.
 export MODELTYPE=CMIP5
 
 ## Define spatial resolution for diagnostics, 0.5x0.5, 1x1 or 2.5x2.5.

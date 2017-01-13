@@ -371,7 +371,12 @@ begin
 
   if (str_lower(VarName).eq."biomass") then
      LongName      = "Aboveground Live Biomass"
-     VarModel      = "cVeg"
+     ; VarModel      = "cVeg"
+     if (str_lower(ModelType).eq."mstmip") then
+        VarModel     = "cWood"
+     else
+        VarModel     = "cVeg"
+     end if
      ModelComp     = "Lmon"    
      Category      = CatNames(0)
      LandOnly      = "YES" 
@@ -514,12 +519,16 @@ begin
 
   if (str_lower(VarName).eq."nee") then
      LongName      = "Net Ecosystem Exchange"
-     VarModel      = "gpp"
      ModelComp     = "Lmon"    
      Category      = CatNames(0)
-     VarModelComb  = "YES"
-     GSMLocalRefer = "YES"
-     MassWeighting = "YES"
+     if (str_lower(ModelType).eq."mstmip") then
+        VarModel        = "nep"
+     else
+        VarModel        = "gpp"
+        VarModelComb    = "YES"
+     end if
+     GSMLocalRefer   = "YES"
+     MassWeighting   = "YES"
      MassWeightingFC = "YES"
      MinFC           = 1.2
      if (str_lower(Source).eq."fluxnet") then
