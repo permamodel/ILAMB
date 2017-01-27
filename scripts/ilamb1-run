@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# ILAMB execution script that runs on `beach`. Run this script with:
+# ILAMBv1 execution script that runs on `beach`. Run this script with:
 #
-# $ bash ilamb-run /path/to/ILAMB_PARA_SETUP
+# $ bash ilamb1-run /path/to/ILAMB_PARA_SETUP
 #
 # The output is saved to the current directory.
 
@@ -31,7 +31,7 @@ export ILAMB_TMPDIR=$work_dir/ILAMB-tmp
 stdout_file=$work_dir/ILAMB.stdout
 stderr_file=$work_dir/ILAMB.stderr
 
-# Define model simulation type, CLM, CMIP5 or MsTMIP.
+# Define model simulation type: CLM, CMIP5 or MsTMIP.
 export MODELTYPE=CMIP5
 
 # Define spatial resolution for diagnostics, 0.5x0.5, 1x1 or 2.5x2.5.

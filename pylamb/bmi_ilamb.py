@@ -4,7 +4,7 @@ import subprocess
 
 
 class BmiIlamb(object):
-    _command = 'ilamb-run'
+    _command = 'ilamb1-run'
     _args = None
     _env = None
 

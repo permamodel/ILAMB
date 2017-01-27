@@ -1,6 +1,6 @@
 # ILAMB
 
-The NCL source code for the [ILAMB](http://ilamb.org) benchmarking toolkit.
+The NCL source code for the [ILAMB](http://ilamb.org) (v1) benchmarking toolkit.
 
 Note that this is not an official ILAMB source repository;
 it's a just a local copy of
@@ -28,7 +28,7 @@ Clone and install into a Python distribution with
     $ cd ILAMB
     $ python setup.py install
 
-Setuptools installs the run script **ilamb-run**
+Setuptools installs the run script **ilamb1-run**
 into the **bin/** directory of the Python distribution.
 
 
