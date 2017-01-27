@@ -114,6 +114,14 @@ begin
       results@FinalPlots = "mm/day"
    end if
 
+   ; Kang's `snd` benchmark.
+   if (str_lower(VarName).eq."snd") then
+     results            = 1.0
+     results@Initial    = "m"
+     results@FinalTable = "m"
+     results@FinalPlots = "m"
+   end if
+   
    if (str_lower(VarName).eq."soilm") then
       results            = 0.1
       results@Initial    = "kg/m2"

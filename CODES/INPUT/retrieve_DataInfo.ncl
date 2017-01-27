@@ -323,7 +323,7 @@ begin
      EndYr     = "2013"   
   end if
 
-  ; 'PBS' is the source for Kang's `tsl` benchmark.
+  ; 'PBS' is the source for Kang's `tsl` and `snd` benchmarks.
   if (str_lower(Source).eq."pbs") then
     DataName  = Source ; Better description?
     Dimens    = "D1s"
@@ -784,6 +784,19 @@ begin
      end if
   end if
 
+  ; Kang's `snd` benchmark.
+  if (str_lower(VarName).eq."snd") then
+    LongName  = "Snow Depth"
+    VarModel = VarName
+    ModelComp = "Lmon"
+    Category  = CatNames(1)  ; hydrology
+    SubGlobe  = "YES"
+    LandOnly  = "YES"
+    if (str_lower(Source).eq."pbs") then
+      Reference  ="Wang et al. (2016)"
+    end if
+  end if
+
   if (str_lower(VarName).eq."soilc") then
      LongName      = "Soil Carbon"
      VarModel      = "cSoil"
@@ -872,7 +885,7 @@ begin
      end if
   end if
 
-  ; For the `tsl` benchmark developed by Kang.
+  ; Kang's `tsl` benchmark.
   if (str_lower(VarName).eq."tsl") then
     LongName  = "Temperature of Soil"
     VarModel = VarName
