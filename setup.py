@@ -9,10 +9,10 @@ setup(name='pylamb',
       version=__version__,
       author='Mark Piper',
       author_email='mark.piper@colorado.edu',
-      description='Python BMI for ILAMB',
+      description='Python BMI for ILAMB (v1, NCL)',
       long_description=open('README.md').read(),
       packages=find_packages(),
       scripts=[
-          'scripts/ilamb-run'
+          'scripts/ilamb1-run'
           ],
 )
