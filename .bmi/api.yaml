@@ -1,4 +1,4 @@
-name: ILAMB
+name: ILAMBv1
 language: python
 package: pylamb
 class: BmiIlamb
